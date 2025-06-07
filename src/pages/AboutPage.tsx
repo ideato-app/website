@@ -109,9 +109,9 @@ const AboutPage = () => {
                         فريقنا
                     </motion.h2>
                     <div className={`team-grid ${isMobile ? 'mobile-team-grid' : ''}`}>
-                        <TeamMemberCard name="علي أحمد" role="مطور واجهات أمامية" imgSrc="https://i.pravatar.cc/150?u=a042581f4e29026704d" />
-                        <TeamMemberCard name="فاطمة الزهراء" role="مصممة UI/UX" imgSrc="https://i.pravatar.cc/150?u=a042581f4e29026705d" />
-                        <TeamMemberCard name="محمد حسن" role="مطور واجهات خلفية" imgSrc="https://i.pravatar.cc/150?u=a042581f4e29026706d" />
+                        <TeamMemberCard name="محمد عماد" role="مهندس برمجيات" imgSrc="" />
+                        <TeamMemberCard name=" معاذ احمد" role="مهندس برمجيات" imgSrc="" />
+                        <TeamMemberCard name="محمد عبدالرحيم" role="مهندس برمجيات" imgSrc="" />
                     </div>
                 </motion.div>
             </div>

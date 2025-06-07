@@ -1228,3 +1228,49 @@ html.sm-viewport body {
     overflow-x: hidden;
   }
 }
+
+/* Theme toggle button */
+.theme-toggle-btn {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+/* Fixed theme toggle positioning */
+.theme-toggle-btn.fixed {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive theme toggle */
+@media (max-width: 767px) {
+  .theme-toggle-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .theme-toggle-btn.fixed {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+  .theme-toggle-btn {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  .theme-toggle-btn.fixed {
+    bottom: 1rem;
+    right: 1rem;
+  }
+}

@@ -453,6 +453,24 @@ section {
   transform: translateY(-2px);
 }
 
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(45deg, var(--accent-secondary), var(--accent-primary));
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(var(--shadow-color), 0.2);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(var(--shadow-color), 0.3);
+}
+
 /* Media Queries */
 @media (min-width: 768px) {
   .md\:flex {

@@ -1,5 +1,6 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { services } from '../data/services';
+import { techLogos } from '../data/techLogos';
 import { motion } from 'framer-motion';
 
 const containerVariants = {
@@ -20,23 +21,43 @@ const itemVariants = {
 };
 
 const Section = ({ title, children }: { title: string, children: React.ReactNode }) => (
-    <motion.div variants={itemVariants} style={{ marginBottom: '4rem' }}>
+    <motion.div variants={itemVariants} style={{ marginBottom: '5rem' }}>
         <h2 className="section-title-small">{title}</h2>
         <div style={{
-            height: '2px',
-            width: '60px',
-            background: 'var(--accent-primary)',
-            margin: '0 auto 2rem auto',
+            height: '3px',
+            width: '80px',
+            background: 'linear-gradient(90deg, var(--accent-primary), var(--accent-secondary))',
+            borderRadius: '2px',
+            margin: '0 auto 2.5rem auto',
         }}></div>
         {children}
     </motion.div>
 );
 
+const FeatureCard = ({ icon, title, description }: { icon: string, title: string, description: string }) => {
+    return (
+        <motion.div
+            variants={itemVariants}
+            whileHover={{ y: -8, boxShadow: '0 10px 30px rgba(var(--shadow-color), 0.1)' }}
+            style={{
+                background: 'var(--bg-secondary)',
+                padding: '2.5rem 2rem',
+                borderRadius: '16px',
+                border: '1px solid var(--border-color)',
+                textAlign: 'center',
+                transition: 'transform 0.3s, box-shadow 0.3s',
+            }}
+        >
+            <span style={{ fontSize: '3rem', display: 'block', marginBottom: '1.5rem', lineHeight: 1 }}>{icon}</span>
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '1rem' }}>{title}</h3>
+            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8 }}>{description}</p>
+        </motion.div>
+    );
+};
+
 
 const ServicePage = () => {
     const { serviceId } = useParams();
-    // The user's router uses serviceId, but the links in services.ts use a path like "/services/web-development".
-    // The `find` should be on the `id` property, which matches the `serviceId` from the URL.
     const service = services.find(s => s.id === serviceId);
 
     if (!service) {
@@ -56,15 +77,23 @@ const ServicePage = () => {
                     animate="visible"
                 >
                     {/* Header */}
-                    <motion.div variants={itemVariants} style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                        <span style={{ fontSize: '4rem', display: 'block', marginBottom: '1rem' }}>{service.icon}</span>
+                    <motion.div variants={itemVariants} style={{ textAlign: 'center', marginBottom: '6rem' }}>
+                        <span style={{
+                            fontSize: '4rem',
+                            display: 'inline-block',
+                            marginBottom: '1.5rem',
+                            background: 'linear-gradient(45deg, var(--accent-primary), var(--accent-secondary))',
+                            padding: '1rem',
+                            borderRadius: '20px',
+                            lineHeight: 1,
+                        }}>{service.icon}</span>
                         <h1 className="section-title" style={{ margin: 0 }}>{service.title}</h1>
                         <p style={{
                             fontSize: '1.2rem',
                             lineHeight: 1.8,
                             color: 'var(--text-secondary)',
-                            maxWidth: '700px',
-                            margin: '1rem auto 0 auto'
+                            maxWidth: '750px',
+                            margin: '1.5rem auto 0 auto'
                         }}>
                             {service.details}
                         </p>
@@ -75,20 +104,11 @@ const ServicePage = () => {
                         <Section title="أبرز الميزات">
                             <div style={{
                                 display: 'grid',
-                                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                                gap: '1.5rem'
+                                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                                gap: '2rem'
                             }}>
                                 {service.features.map((feature, index) => (
-                                    <motion.div key={index} variants={itemVariants} style={{
-                                        background: 'var(--bg-secondary)',
-                                        padding: '2rem',
-                                        borderRadius: '12px',
-                                        border: '1px solid var(--border-color)',
-                                        textAlign: 'right'
-                                    }}>
-                                        <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.75rem' }}>{feature.title}</h3>
-                                        <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7 }}>{feature.description}</p>
-                                    </motion.div>
+                                    <FeatureCard key={index} {...feature} />
                                 ))}
                             </div>
                         </Section>
@@ -100,49 +120,50 @@ const ServicePage = () => {
                             <div style={{ position: 'relative' }}>
                                 <div style={{
                                     position: 'absolute',
-                                    right: '23px',
+                                    right: '24px',
                                     top: '10px',
                                     bottom: '10px',
-                                    width: '4px',
+                                    width: '2px',
                                     background: 'var(--border-color)',
-                                    borderRadius: '2px'
                                 }}></div>
                                 {service.process.map((step, index) => (
                                     <motion.div key={index} variants={itemVariants} style={{
                                         display: 'flex',
                                         alignItems: 'center',
-                                        marginBottom: '1.5rem',
+                                        marginBottom: '2rem',
                                         position: 'relative',
-                                        paddingRight: '60px'
+                                        paddingRight: '70px'
                                     }}>
                                         <div style={{
                                             position: 'absolute',
-                                            right: '0',
+                                            right: 0,
                                             top: '50%',
                                             transform: 'translateY(-50%)',
                                             width: '50px',
                                             height: '50px',
                                             borderRadius: '50%',
                                             background: 'var(--bg-secondary)',
-                                            border: '4px solid var(--accent-secondary)',
+                                            border: '2px solid var(--accent-secondary)',
                                             color: 'var(--accent-secondary)',
                                             display: 'flex',
                                             alignItems: 'center',
                                             justifyContent: 'center',
-                                            fontWeight: '700',
-                                            fontSize: '1.2rem',
+                                            fontWeight: 700,
+                                            fontSize: '1.5rem',
                                             zIndex: 2,
+                                            boxShadow: '0 0 15px rgba(var(--accent-secondary-rgb), 0.3)',
                                         }}>
                                             {index + 1}
                                         </div>
                                         <p style={{
                                             color: 'var(--text-primary)',
-                                            background: 'var(--bg-secondary)',
-                                            padding: '1rem 1.5rem',
-                                            borderRadius: '8px',
+                                            background: 'var(--bg-tertiary)',
+                                            padding: '1.5rem 2rem',
+                                            borderRadius: '12px',
                                             border: '1px solid var(--border-color)',
                                             width: '100%',
-                                            margin: 0
+                                            margin: 0,
+                                            fontSize: '1.1rem',
                                         }}>{step}</p>
                                     </motion.div>
                                 ))}
@@ -153,19 +174,40 @@ const ServicePage = () => {
                     {/* Tech Stack Section */}
                     {service.techStack && (
                         <Section title="التقنيات التي نستخدمها">
-                            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem' }}>
-                                {service.techStack.map((tech, index) => (
-                                    <motion.div key={index} variants={itemVariants} style={{
-                                        background: 'var(--bg-secondary)',
-                                        padding: '0.75rem 1.5rem',
-                                        borderRadius: '20px',
-                                        border: '1px solid var(--border-color)',
-                                        color: 'var(--text-secondary)',
-                                        fontWeight: 600
-                                    }}>
-                                        {tech}
-                                    </motion.div>
-                                ))}
+                            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '2rem', alignItems: 'center' }}>
+                                {service.techStack.map((tech, index) => {
+                                    const logo = techLogos[tech] || '⚙️';
+                                    const isUrl = logo.startsWith('http');
+
+                                    return (
+                                        <motion.div
+                                            key={index}
+                                            variants={itemVariants}
+                                            title={tech}
+                                            style={{
+                                                background: 'var(--bg-secondary)',
+                                                borderRadius: '12px',
+                                                padding: '1rem',
+                                                border: '1px solid var(--border-color)',
+                                                width: '80px',
+                                                height: '80px',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center'
+                                            }}>
+                                            {isUrl ? (
+                                                <img src={logo} alt={tech} style={{
+                                                    width: '40px',
+                                                    height: '40px',
+                                                    objectFit: 'contain',
+                                                    filter: tech === 'Next.js' && 'var(--theme) === "dark"' ? 'invert(1)' : 'none',
+                                                }} />
+                                            ) : (
+                                                <span style={{ fontSize: '40px' }}>{logo}</span>
+                                            )}
+                                        </motion.div>
+                                    );
+                                })}
                             </div>
                         </Section>
                     )}
@@ -176,8 +218,9 @@ const ServicePage = () => {
                             <p style={{
                                 color: 'var(--text-secondary)',
                                 maxWidth: '600px',
-                                margin: '0 auto 2rem auto',
-                                lineHeight: 1.8
+                                margin: '0 auto 2.5rem auto',
+                                lineHeight: 1.8,
+                                fontSize: '1.1rem'
                             }}>
                                 نحن متحمسون لسماع المزيد عن مشروعك. تواصل معنا اليوم لبدء تحويل فكرتك إلى حقيقة.
                             </p>

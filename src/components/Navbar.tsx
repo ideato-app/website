@@ -63,7 +63,8 @@ const Navbar = () => {
                     <div className="desktop-nav">
                         <Link to="/" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>الرئيسية</Link>
                         <a href="/#services" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>خدماتنا</a>
-                        <a href="/#contact" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>تواصل معنا</a>
+                        <Link to="/about" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>من نحن</Link>
+                        <Link to="/contact" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>تواصل معنا</Link>
                     </div>
                     <DarkModeToggle />
                     <button className="mobile-nav-toggle" onClick={() => setIsOpen(!isOpen)} style={{ background: 'none', border: 'none', color: 'var(--text-primary)' }}>
@@ -93,7 +94,8 @@ const Navbar = () => {
                 >
                     <Link to="/" style={{ ...linkStyle, display: 'block', padding: '1rem' }} onClick={() => setIsOpen(false)}>الرئيسية</Link>
                     <a href="/#services" style={{ ...linkStyle, display: 'block', padding: '1rem' }} onClick={() => setIsOpen(false)}>خدماتنا</a>
-                    <a href="/#contact" style={{ ...linkStyle, display: 'block', padding: '1rem' }} onClick={() => setIsOpen(false)}>تواصل معنا</a>
+                    <Link to="/about" style={{ ...linkStyle, display: 'block', padding: '1rem' }} onClick={() => setIsOpen(false)}>من نحن</Link>
+                    <Link to="/contact" style={{ ...linkStyle, display: 'block', padding: '1rem' }} onClick={() => setIsOpen(false)}>تواصل معنا</Link>
                 </motion.div>
             )}
         </motion.nav>

@@ -18,14 +18,13 @@ const ServicesGrid = () => {
                         gap: '2rem',
                     }}
                 >
-                    {services.map((service, index) => (
+                    {services.map((service) => (
                         <ServiceCard
                             key={service.id}
                             id={service.id}
                             title={service.title}
                             description={service.description}
                             icon={service.icon}
-                            index={index}
                         />
                     ))}
                 </motion.div>

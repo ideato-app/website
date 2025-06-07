@@ -79,7 +79,16 @@ const AboutPage = () => {
                         </p>
                     </motion.div>
 
-                 
+                    <motion.h2 variants={itemVariants} className="section-title" style={{ marginBottom: '4rem' }}>فريقنا</motion.h2>
+                    <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                        gap: '2rem'
+                    }}>
+                        <TeamMemberCard name="علي أحمد" role="مطور واجهات أمامية" imgSrc="https://i.pravatar.cc/150?u=a042581f4e29026704d" />
+                        <TeamMemberCard name="فاطمة الزهراء" role="مصممة UI/UX" imgSrc="https://i.pravatar.cc/150?u=a042581f4e29026705d" />
+                        <TeamMemberCard name="محمد حسن" role="مطور واجهات خلفية" imgSrc="https://i.pravatar.cc/150?u=a042581f4e29026706d" />
+                    </div>
                 </motion.div>
             </div>
         </div>

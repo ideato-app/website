@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import React from 'react';
 
 interface ServiceCardProps {
     id: string;
     title: string;
     description: string;
     icon: string;
-    index: number;
 }
 
 const cardVariants = {
@@ -25,8 +25,8 @@ const cardVariants = {
     }
 };
 
-const ServiceCard = ({ id, title, description, icon, index }: ServiceCardProps) => {
-    const cardStyle = {
+const ServiceCard = ({ id, title, description, icon }: ServiceCardProps) => {
+    const cardStyle: React.CSSProperties = {
         background: 'rgba(var(--bg-secondary-rgb), 0.5)',
         border: '1px solid var(--border-color)',
         borderRadius: '16px',

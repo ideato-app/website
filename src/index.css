@@ -73,12 +73,14 @@ body {
   color: var(--text-primary);
   transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 
 .container {
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 section {
@@ -454,21 +456,21 @@ section {
 }
 
 .cta-button {
-    display: inline-block;
-    padding: 1rem 2.5rem;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #fff;
-    background: linear-gradient(45deg, var(--accent-secondary), var(--accent-primary));
-    border-radius: 50px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(var(--shadow-color), 0.2);
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(45deg, var(--accent-secondary), var(--accent-primary));
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(var(--shadow-color), 0.2);
 }
 
 .cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(var(--shadow-color), 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(var(--shadow-color), 0.3);
 }
 
 /* Media Queries */
@@ -532,23 +534,697 @@ section {
   }
 }
 
-/* Navbar specific styles */
+/* Navbar responsiveness */
 .desktop-nav {
   display: none;
-  align-items: center;
-  gap: 0.5rem;
+  /* Hidden on mobile by default */
 }
 
 .mobile-nav-toggle {
   display: block;
+  /* Shown on mobile by default */
 }
 
 @media (min-width: 768px) {
   .desktop-nav {
     display: flex;
+    /* Shown on desktop */
+    align-items: center;
+    gap: 1rem;
   }
 
   .mobile-nav-toggle {
     display: none;
+    /* Hidden on desktop */
+  }
+}
+
+/* Page-specific responsive styles */
+.page-container {
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+}
+
+.content-box {
+  background: var(--bg-secondary);
+  padding: 2rem 1.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.content-box-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 3rem;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.social-icons-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+  width: 100%;
+}
+
+.social-icons-grid a {
+  transition: transform 0.3s ease;
+}
+
+.social-icons-grid a:hover {
+  transform: scale(1.15);
+}
+
+@media (max-width: 480px) {
+  .social-icons-grid {
+    gap: 1rem;
+  }
+
+  .social-icons-grid svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .section-title {
+    font-size: 1.75rem !important;
+  }
+
+  .section-subtitle {
+    font-size: 1rem !important;
+  }
+
+  .content-box {
+    padding: 1.25rem !important;
+  }
+
+  .content-box-title {
+    font-size: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+}
+
+/* Desktop overrides */
+@media (min-width: 768px) {
+  .page-container {
+    padding-top: 8rem;
+  }
+
+  .content-box {
+    padding: 3rem;
+  }
+
+  .content-box-title {
+    font-size: 2rem;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .contact-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+/* Responsive utility classes */
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Better text size control for mobile */
+.responsive-text {
+  font-size: clamp(0.9rem, 4vw, 1.1rem);
+  line-height: 1.6;
+}
+
+.responsive-heading {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+/* Extra small devices (phones) */
+@media (max-width: 480px) {
+  .xs\:text-center {
+    text-align: center;
+  }
+
+  .xs\:px-2 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .xs\:py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .xs\:flex-col {
+    flex-direction: column;
+  }
+
+  .xs\:gap-3 {
+    gap: 0.75rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .aurora-shape-1 {
+    width: 300px;
+    height: 300px;
+  }
+
+  .aurora-shape-2 {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+/* Improve existing mobile responsive styles */
+@media (max-width: 480px) {
+  .social-icons-grid {
+    gap: 0.75rem;
+    padding: 0.5rem;
+  }
+
+  .social-icons-grid svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .section-title {
+    font-size: 1.75rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .section-subtitle {
+    font-size: 1rem !important;
+    margin-bottom: 2rem !important;
+    padding: 0 0.5rem;
+  }
+
+  .content-box {
+    padding: 1.25rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .content-box-title {
+    font-size: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .container {
+    width: 95%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .page-container {
+    padding-top: 5rem !important;
+    padding-bottom: 3rem !important;
+  }
+}
+
+/* Improved tablet and mobile landscape styles */
+@media (min-width: 481px) and (max-width: 767px) {
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sm\:text-center {
+    text-align: center;
+  }
+
+  .container {
+    width: 90%;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.05rem;
+    margin-bottom: 3rem;
+  }
+
+  .content-box {
+    padding: 1.5rem !important;
+  }
+}
+
+/* Team Member Components */
+.team-member-card {
+  background: var(--bg-secondary);
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  text-align: center;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(var(--shadow-color), 0.05);
+}
+
+.team-member-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(var(--shadow-color), 0.1);
+  border-color: var(--accent-primary);
+}
+
+.team-member-image-container {
+  margin-bottom: 1.5rem;
+}
+
+.team-member-image {
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto;
+  border: 4px solid var(--accent-primary);
+  transition: transform 0.3s ease;
+}
+
+.team-member-card:hover .team-member-image {
+  transform: scale(1.05);
+}
+
+.team-member-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.team-member-role {
+  color: var(--accent-secondary);
+  font-weight: 700;
+}
+
+.mission-box {
+  padding: 3rem;
+  margin-bottom: 3rem;
+}
+
+.mission-text {
+  text-align: center;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.team-section-title {
+  margin-bottom: 4rem;
+}
+
+.xs-text {
+  font-size: 0.9rem !important;
+}
+
+.xs-padding {
+  padding: 1.25rem !important;
+}
+
+.sm-padding {
+  padding: 1.75rem !important;
+}
+
+.xs-title {
+  font-size: 1.4rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.mobile-team-grid {
+  gap: 1.5rem;
+}
+
+/* Responsive classes for viewport sizes */
+.xs-viewport .section-title {
+  margin-bottom: 1rem;
+}
+
+.xs-viewport .team-section-title {
+  margin-bottom: 1.5rem;
+}
+
+.sm-viewport .team-section-title {
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 480px) {
+  .team-member-name {
+    font-size: 1.1rem;
+  }
+
+  .mission-box {
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .mobile-team-grid {
+    gap: 1rem;
+  }
+
+  .team-member-card {
+    padding: 1rem !important;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .team-member-name {
+    font-size: 1.3rem;
+  }
+
+  .mission-box {
+    padding: 1.75rem;
+  }
+}
+
+/* Contact Page Components */
+.contact-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.contact-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(var(--shadow-color), 0.1);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.sm-contact-button {
+  padding: 1rem 1.25rem;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.xs-contact-button {
+  padding: 0.75rem 1rem;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+}
+
+.xs-icon {
+  font-size: 1rem;
+}
+
+.contact-text {
+  white-space: nowrap;
+}
+
+.social-link {
+  color: var(--text-secondary);
+  transition: color 0.3s, transform 0.3s;
+  display: inline-block;
+  padding: 0.5rem;
+}
+
+.social-link:hover {
+  transform: scale(1.2);
+}
+
+.social-link[data-color="accent-primary"]:hover {
+  color: var(--accent-primary);
+}
+
+.social-link[data-color="accent-secondary"]:hover {
+  color: var(--accent-secondary);
+}
+
+.social-link[data-color="text-primary"]:hover {
+  color: var(--text-primary);
+}
+
+.xs-social-grid {
+  gap: 1rem;
+}
+
+/* Additional responsive improvements */
+@media (max-width: 480px) {
+  .contact-content {
+    padding-bottom: 2rem;
+  }
+}
+
+/* Fix any RTL-specific layout issues */
+[dir="rtl"] .contact-button {
+  flex-direction: row-reverse;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Main layout styling */
+.main-layout {
+  background-color: var(--bg-primary);
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.main-content {
+  flex: 1;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Ensure content doesn't overflow on mobile */
+html.xs-viewport,
+html.sm-viewport {
+  overflow-x: hidden;
+}
+
+html.xs-viewport body,
+html.sm-viewport body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Improve tap targets for mobile */
+@media (max-width: 767px) {
+
+  button,
+  a,
+  input[type="button"],
+  input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .social-link {
+    padding: 10px;
+  }
+}
+
+/* Additional spacing utilities for mobile */
+.mobile-mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mobile-mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mobile-mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mobile-p-2 {
+  padding: 0.5rem;
+}
+
+/* More robust mobile fixes */
+@media (max-width: 480px) {
+
+  /* Fix potential overflow in content boxes */
+  .content-box {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* Ensure text remains readable */
+  p,
+  li,
+  a {
+    font-size: 0.95rem;
+  }
+
+  /* More spacious mobile tap targets */
+  .social-icons-grid a {
+    padding: 8px;
+    margin: 4px;
+  }
+
+  /* Better touch interaction */
+  .contact-button {
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Improve form elements on mobile */
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+    /* Prevents zoom on focus in iOS */
+  }
+
+  /* Mobile-optimized container */
+  .container {
+    width: 92%;
+    padding: 0;
+  }
+}
+
+/* Fix RTL specific issues */
+[dir="rtl"] .team-grid,
+[dir="rtl"] .contact-grid,
+[dir="rtl"] .social-icons-grid {
+  direction: rtl;
+}
+
+/* Ensure viewport is properly set */
+@media screen and (max-width: 480px) {
+
+  html,
+  body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  .container,
+  .page-container,
+  .content-box,
+  .team-grid,
+  .contact-grid,
+  .social-icons-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    box-sizing: border-box !important;
+  }
+
+  .section-title,
+  .section-subtitle {
+    width: 100% !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    box-sizing: border-box !important;
+    word-wrap: break-word;
+  }
+
+  /* Ensure the team grid has proper spacing */
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  /* Fix social icons on mobile */
+  .social-icons-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+
+  .social-icons-grid a {
+    margin: 0.25rem;
+  }
+
+  /* Ensure the page container doesn't overflow */
+  .page-container {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Adjust the container padding for mobile */
+  .container {
+    padding: 0 0.5rem;
+  }
+
+  /* Fix RTL layout on mobile */
+  [dir="rtl"] .contact-button {
+    flex-direction: row-reverse;
+  }
+
+  /* Make team members take full width */
+  .team-member-card {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Override tablet responsive styles */
+@media (min-width: 481px) and (max-width: 767px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Ensure the page container doesn't overflow */
+  .page-container {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 }

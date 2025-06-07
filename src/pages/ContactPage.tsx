@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { FacebookIcon, TwitterIcon, InstagramIcon, LinkedInIcon, GitHubIcon } from '../components/SocialIcons';
+import useMediaQuery from '../hooks/useMediaQuery';
+import { useEffect } from 'react';
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -19,44 +21,29 @@ const itemVariants = {
 };
 
 const ContactPage = () => {
+    const isMobile = useMediaQuery('(max-width: 767px)');
+    const isSmallMobile = useMediaQuery('(max-width: 480px)');
 
-    const contactButtonStyle: React.CSSProperties = {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '1rem',
-        background: 'var(--bg-secondary)',
-        border: '1px solid var(--border-color)',
-        borderRadius: '12px',
-        padding: '1.5rem 2rem',
-        color: 'var(--text-primary)',
-        textDecoration: 'none',
-        fontSize: '1.2rem',
-        fontWeight: 700,
-        transition: 'all 0.3s ease',
-    };
+    // Add CSS classes to the document body
+    useEffect(() => {
+        if (isSmallMobile) {
+            document.body.classList.add('xs-viewport');
+        } else if (isMobile) {
+            document.body.classList.add('sm-viewport');
+            document.body.classList.remove('xs-viewport');
+        } else {
+            document.body.classList.remove('xs-viewport');
+            document.body.classList.remove('sm-viewport');
+        }
 
-    const contactButtonHoverStyle: React.CSSProperties = {
-        transform: 'translateY(-5px)',
-        boxShadow: '0 10px 20px rgba(var(--shadow-color), 0.1)',
-        borderColor: 'var(--accent-primary)',
-        color: 'var(--accent-primary)',
-    };
-
-    const socialLinkStyle: React.CSSProperties = {
-        color: 'var(--text-secondary)',
-        transition: 'color 0.3s, transform 0.3s',
-        display: 'inline-block'
-    };
-
-    const socialLinkHoverStyle = (accentColor: string): React.CSSProperties => ({
-        color: `var(--${accentColor})`,
-        transform: 'scale(1.2)'
-    });
-
+        return () => {
+            document.body.classList.remove('xs-viewport');
+            document.body.classList.remove('sm-viewport');
+        };
+    }, [isMobile, isSmallMobile]);
 
     return (
-        <div style={{ paddingTop: '8rem', paddingBottom: '4rem' }}>
+        <div className="page-container">
             <div className="aurora-background">
                 <motion.div className="aurora-shape aurora-shape-1" />
                 <motion.div className="aurora-shape aurora-shape-2" />
@@ -66,59 +53,56 @@ const ContactPage = () => {
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
+                    className="contact-content"
                 >
                     <motion.h1 variants={itemVariants} className="section-title">تواصل معنا</motion.h1>
-                    <motion.p variants={itemVariants} className="section-subtitle">
+                    <motion.p variants={itemVariants} className="section-subtitle responsive-text">
                         نحن متحمسون لسماع أفكارك. اختر طريقة التواصل المفضلة لديك أدناه.
                     </motion.p>
 
                     <motion.div
                         variants={itemVariants}
-                        style={{
-                            background: 'var(--bg-secondary)',
-                            padding: '3rem',
-                            borderRadius: '16px',
-                            border: '1px solid var(--border-color)',
-                            textAlign: 'center'
-                        }}
+                        className={`content-box ${isSmallMobile ? 'xs-padding' : isMobile ? 'sm-padding' : ''}`}
                     >
-                        <h2 style={{ fontSize: '2rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '3rem' }}>التواصل المباشر</h2>
-                        <div style={{
-                            display: 'grid',
-                            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-                            gap: '2rem',
-                            marginBottom: '4rem'
-                        }}>
+                        <h2 className={`content-box-title ${isSmallMobile ? 'xs-title' : ''}`}>التواصل المباشر</h2>
+                        <div className="contact-grid">
                             <motion.a
                                 href="mailto:contact@ideatoapp.com"
-                                style={contactButtonStyle}
-                                whileHover="hover"
-                                onMouseOver={e => Object.assign(e.currentTarget.style, contactButtonHoverStyle)}
-                                onMouseOut={e => Object.assign(e.currentTarget.style, contactButtonStyle)}
+                                className={`contact-button ${isSmallMobile ? 'xs-contact-button' : isMobile ? 'sm-contact-button' : ''}`}
+                                whileHover={!isMobile ? { y: -5, boxShadow: '0 10px 20px rgba(var(--shadow-color), 0.1)' } : {}}
                             >
-                                <span style={{ fontSize: '1.5rem' }}>📧</span>
-                                <span>راسلنا عبر البريد</span>
+                                <span className={`contact-icon ${isSmallMobile ? 'xs-icon' : ''}`}>📧</span>
+                                <span className="contact-text">راسلنا عبر البريد</span>
                             </motion.a>
                             <motion.a
                                 href="https://wa.me/201104532940"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                style={contactButtonStyle}
-                                onMouseOver={e => Object.assign(e.currentTarget.style, contactButtonHoverStyle)}
-                                onMouseOut={e => Object.assign(e.currentTarget.style, contactButtonStyle)}
+                                className={`contact-button ${isSmallMobile ? 'xs-contact-button' : isMobile ? 'sm-contact-button' : ''}`}
+                                whileHover={!isMobile ? { y: -5, boxShadow: '0 10px 20px rgba(var(--shadow-color), 0.1)' } : {}}
                             >
-                                <span style={{ fontSize: '1.5rem' }}>💬</span>
-                                <span>تواصل عبر WhatsApp</span>
+                                <span className={`contact-icon ${isSmallMobile ? 'xs-icon' : ''}`}>💬</span>
+                                <span className="contact-text">تواصل عبر WhatsApp</span>
                             </motion.a>
                         </div>
 
-                        <h2 style={{ fontSize: '2rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '2rem' }}>تابعنا على الشبكات الاجتماعية</h2>
-                        <div style={{ display: 'flex', gap: '2rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                            <a href="https://www.facebook.com/ideato.app.official" aria-label="Facebook" style={socialLinkStyle} onMouseOver={e => Object.assign(e.currentTarget.style, socialLinkHoverStyle('accent-primary'))} onMouseOut={e => Object.assign(e.currentTarget.style, socialLinkStyle)}><FacebookIcon /></a>
-                            <a href="https://x.com/ideato_app" aria-label="Twitter" style={socialLinkStyle} onMouseOver={e => Object.assign(e.currentTarget.style, socialLinkHoverStyle('accent-primary'))} onMouseOut={e => Object.assign(e.currentTarget.style, socialLinkStyle)}><TwitterIcon /></a>
-                            <a href="https://www.instagram.com/ideato.app/" aria-label="Instagram" style={socialLinkStyle} onMouseOver={e => Object.assign(e.currentTarget.style, socialLinkHoverStyle('accent-secondary'))} onMouseOut={e => Object.assign(e.currentTarget.style, socialLinkStyle)}><InstagramIcon /></a>
-                            <a href="https://www.linkedin.com/in/ideato-app" aria-label="LinkedIn" style={socialLinkStyle} onMouseOver={e => Object.assign(e.currentTarget.style, socialLinkHoverStyle('accent-primary'))} onMouseOut={e => Object.assign(e.currentTarget.style, socialLinkStyle)}><LinkedInIcon /></a>
-                            <a href="https://github.com/ideato-app" aria-label="GitHub" style={socialLinkStyle} onMouseOver={e => Object.assign(e.currentTarget.style, socialLinkHoverStyle('text-primary'))} onMouseOut={e => Object.assign(e.currentTarget.style, socialLinkStyle)}><GitHubIcon /></a>
+                        <h2 className={`content-box-title ${isSmallMobile ? 'xs-title' : ''}`}>تابعنا على الشبكات الاجتماعية</h2>
+                        <div className={`social-icons-grid ${isSmallMobile ? 'xs-social-grid' : ''}`}>
+                            <a href="https://www.facebook.com/ideato.app.official" aria-label="Facebook" className="social-link" data-color="accent-primary">
+                                <FacebookIcon />
+                            </a>
+                            <a href="https://x.com/ideato_app" aria-label="Twitter" className="social-link" data-color="accent-primary">
+                                <TwitterIcon />
+                            </a>
+                            <a href="https://www.instagram.com/ideato.app/" aria-label="Instagram" className="social-link" data-color="accent-secondary">
+                                <InstagramIcon />
+                            </a>
+                            <a href="https://www.linkedin.com/in/ideato-app" aria-label="LinkedIn" className="social-link" data-color="accent-primary">
+                                <LinkedInIcon />
+                            </a>
+                            <a href="https://github.com/ideato-app" aria-label="GitHub" className="social-link" data-color="text-primary">
+                                <GitHubIcon />
+                            </a>
                         </div>
                     </motion.div>
                 </motion.div>

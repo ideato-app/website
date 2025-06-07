@@ -54,7 +54,7 @@ const Navbar = () => {
             animate={{ y: 0 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
         >
-            <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 1rem' }}>
                 <Link to="/" style={{ textDecoration: 'none', color: 'var(--text-primary)', fontSize: '1.5rem', fontWeight: '900' }}>
                     Idea<span style={{ color: 'var(--accent-primary)' }}>To</span>App
                 </Link>

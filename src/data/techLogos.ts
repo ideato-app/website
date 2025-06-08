@@ -1,6 +1,5 @@
 // A simple mapping of technology names to their corresponding icon or logo representations.
 // This allows for a more visual representation of the tech stack on the service pages.
-
 export const techLogos: { [key: string]: string } = {
     // Web Development
     "React": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
@@ -27,11 +26,14 @@ export const techLogos: { [key: string]: string } = {
     "Adobe XD": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg",
     "Sketch": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sketch/sketch-original.svg",
 
-    // Security
-    "OWASP ZAP": "🔒", // Using emoji
-    "Burp Suite": "🔒", // Using emoji
-    "Nmap": "🔒", // Using emoji
-    "Metasploit": "🔒", // Using emoji
+    // Security - using static emojis
+    "OWASP ZAP": "🛡️",         // درع = أداة حماية
+    "Burp Suite": "🧪",        // أنبوبة اختبار = تحليل الثغرات
+    "Nmap": "📡",              // هوائي = فحص الشبكات
+    "Metasploit": "💣",        // قنبلة = استغلال الثغرات
+    "Linux": "🐧",             // البطريق الشهير للـ Linux
+    "Isploit": "🧠",           // عقل = رمز للاختراق الذكي
+
 
     // Hosting & DevOps
     "AWS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg",
@@ -40,7 +42,11 @@ export const techLogos: { [key: string]: string } = {
     "Terraform": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg",
     "GitHub Actions": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
 
+    // App Publishing Platforms
+    "Google Play Console": "📱", // Placeholder emoji
+    "Apple Developer": "🍎",     // Placeholder emoji
+
     // Default fallbacks
     "Scikit-learn": "🤖",
     "InVision": "🎨",
-}; 
+};

@@ -72,7 +72,7 @@ const Footer = () => {
                             Idea<span style={{ color: 'var(--accent-primary)' }}>To</span>App
                         </Link>
                         <p style={{ lineHeight: 1.8 }}>
-                            نحول أفكارك إلى واقع رقمي. حلول برمجية مبتكرة وتصاميم عصرية.
+                            بنحوّل أفكارك لواقع رقمي مبتكر. حلول برمجية وتصميمات عصرية تناسب احتياجاتك.
                         </p>
                     </div>
 

@@ -79,7 +79,7 @@ const PortfolioPage = () => {
                     </motion.div>
                     <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
                         <Typography variant="h6" color="text.secondary" sx={{ maxWidth: '700px', mx: 'auto' }}>
-                            هذه هي المشاريع التي قمنا بتطويرها.
+                            ابرز مشاريعنا
                         </Typography>
                     </motion.div>
                 </Box>
@@ -168,10 +168,10 @@ const PortfolioPage = () => {
                                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ gridColumn: '1 / -1' }}>
                                     <Box textAlign="center" py={10}>
                                         <Typography variant="h5" component="h3" gutterBottom>
-                                            No Projects Found
+                                            لم يتم العثور على مشاريع
                                         </Typography>
                                         <Typography color="text.secondary">
-                                            We couldn't find any projects with that tag. Try another one!
+                                            لم نعثر على أي مشاريع تحتوي على هذا التصنيف. جرّب تصنيفًا آخر!
                                         </Typography>
                                     </Box>
                                 </motion.div>
@@ -219,13 +219,13 @@ const PortfolioPage = () => {
                                             {selectedProject.description}
                                         </Typography>
                                         <Typography variant="h6" fontWeight="bold" gutterBottom>
-                                            Project Highlights
+                                            أبرز مميزات المشروع
                                         </Typography>
                                         <Box component="ul" pl={2.5} mb={4} sx={{ '& li': { mb: 1 } }}>
-                                            <Typography component="li" color="text.secondary">Responsive design for all device sizes</Typography>
-                                            <Typography component="li" color="text.secondary">Optimized performance and loading times</Typography>
-                                            <Typography component="li" color="text.secondary">Intuitive user interface and experience</Typography>
-                                            <Typography component="li" color="text.secondary">Secure and scalable architecture</Typography>
+                                            <Typography component="li" color="text.secondary">تصميم متجاوب يناسب جميع أحجام الشاشات</Typography>
+                                            <Typography component="li" color="text.secondary">أداء محسن وسرعة تحميل عالية</Typography>
+                                            <Typography component="li" color="text.secondary">واجهة استخدام وتجربة مستخدم سهلة وسلسة</Typography>
+                                            <Typography component="li" color="text.secondary">بنية آمنة وقابلة للتوسع</Typography>
                                         </Box>
                                     </Box>
                                     <Button
@@ -236,7 +236,7 @@ const PortfolioPage = () => {
                                         size="large"
                                         fullWidth
                                     >
-                                        Visit Project
+                                        زيارة المشروع
                                     </Button>
                                 </Box>
                                 <IconButton

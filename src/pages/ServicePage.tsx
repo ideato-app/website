@@ -172,48 +172,10 @@ const ServicePage = () => {
                     )}
 
                     {/* Tech Stack Section */}
-                    {service.techStack && (
-                        <Section title="التقنيات التي نستخدمها">
-                            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '2rem', alignItems: 'center' }}>
-                                {service.techStack.map((tech, index) => {
-                                    const logo = techLogos[tech] || '⚙️';
-                                    const isUrl = logo.startsWith('http');
-
-                                    return (
-                                        <motion.div
-                                            key={index}
-                                            variants={itemVariants}
-                                            title={tech}
-                                            style={{
-                                                background: 'var(--bg-secondary)',
-                                                borderRadius: '12px',
-                                                padding: '1rem',
-                                                border: '1px solid var(--border-color)',
-                                                width: '80px',
-                                                height: '80px',
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                justifyContent: 'center'
-                                            }}>
-                                            {isUrl ? (
-                                                <img src={logo} alt={tech} style={{
-                                                    width: '40px',
-                                                    height: '40px',
-                                                    objectFit: 'contain',
-                                                    filter: tech === 'Next.js' && 'var(--theme) === "dark"' ? 'invert(1)' : 'none',
-                                                }} />
-                                            ) : (
-                                                <span style={{ fontSize: '40px' }}>{logo}</span>
-                                            )}
-                                        </motion.div>
-                                    );
-                                })}
-                            </div>
-                        </Section>
-                    )}
+                   
 
                     {/* CTA Section */}
-                    <Section title="هل لديك فكرة مشروع؟">
+                    <Section title="عندك فكرة مشروع؟">
                         <motion.div variants={itemVariants} style={{ textAlign: 'center' }}>
                             <p style={{
                                 color: 'var(--text-secondary)',
@@ -222,10 +184,10 @@ const ServicePage = () => {
                                 lineHeight: 1.8,
                                 fontSize: '1.1rem'
                             }}>
-                                نحن متحمسون لسماع المزيد عن مشروعك. تواصل معنا اليوم لبدء تحويل فكرتك إلى حقيقة.
+                مستنيين نعرف أكتر عن مشروعك. ابدأ معانا أول خطوة في تنفيذ فكرتك دلوقتي.
                             </p>
                             <Link to="/contact" className="cta-button" style={{ textDecoration: 'none' }}>
-                                ابدأ مشروعك الآن
+                                ابدأ مشروعك دلوقتي
                             </Link>
                         </motion.div>
                     </Section>

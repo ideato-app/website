@@ -74,8 +74,7 @@ const HeroSection = () => {
                             lineHeight: 1.6,
                         }}
                     >
-                        نحوّل أفكارك إلى تطبيقات ومواقع إلكترونية مذهلة وعالية الجودة.
-                    </motion.p>
+                        نحن نقدم خدمات متكاملة لتحويل أفكارك إلى تطبيقات ومواقع إلكترونية احترافية                    </motion.p>
                     <motion.div variants={itemVariants}>
                         <a href="#services" style={{
                             display: 'inline-block',

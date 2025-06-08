@@ -98,7 +98,7 @@ const AboutPage = () => {
                     >
                         <h2 className={`content-box-title ${isSmallMobile ? 'xs-title' : ''}`}>مهمتنا</h2>
                         <p className="mission-text responsive-text">
-                            مهمتنا هي تمكين رواد الأعمال والشركات من خلال تزويدهم بالحلول التقنية المبتكرة التي يحتاجونها للنجاح في عالم اليوم الرقمي. نحن نؤمن بأن كل فكرة عظيمة تستحق أن تُبنى بأفضل طريقة ممكنة.
+                            مهمتنا هي تمكين رواد الأعمال والشركات من خلال تقديم حلول تقنية متطورة ومبتكرة تساعدهم على التميز والنجاح في عالم رقمي متغير باستمرار. نحن نؤمن أن كل فكرة قوية تستحق التنفيذ بأعلى معايير الجودة والاحترافية.
                         </p>
                     </motion.div>
 
@@ -109,9 +109,9 @@ const AboutPage = () => {
                         فريقنا
                     </motion.h2>
                     <div className={`team-grid ${isMobile ? 'mobile-team-grid' : ''}`}>
-                        <TeamMemberCard name="محمد عماد" role="مهندس برمجيات" imgSrc="" />
-                        <TeamMemberCard name=" معاذ احمد" role="مهندس برمجيات" imgSrc="" />
-                        <TeamMemberCard name="محمد عبدالرحيم" role="مهندس برمجيات" imgSrc="" />
+                        <TeamMemberCard name="محمد عماد" role="مهندس برمجيات و خبير ذكاء اصطناعي" imgSrc="" />
+                        <TeamMemberCard name="معاذ احمد" role=" مهندس برمجيات و خبير امن سيبراني" imgSrc="" />
+                        <TeamMemberCard name="محمد عبدالرحيم" role="مهندس برمجيات و متخصص SEO" imgSrc="" />
                     </div>
                 </motion.div>
             </div>

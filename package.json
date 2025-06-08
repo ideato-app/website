@@ -10,12 +10,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@headlessui/react": "^2.2.4",
+    "@mui/icons-material": "^7.1.1",
+    "@mui/material": "^7.1.1",
     "@tailwindcss/vite": "^4.1.8",
     "@types/react-router-dom": "^5.3.3",
     "framer-motion": "^11.18.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-helmet-async": "^2.0.5",
     "react-router-dom": "^7.6.2"
   },
   "devDependencies": {

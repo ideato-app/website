@@ -4,6 +4,8 @@ import ServicePage from './pages/ServicePage';
 import MainLayout from './components/MainLayout';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import PortfolioPage from './pages/PortfolioPage';
+import ErrorPage from './pages/ErrorPage';
 import './index.css';
 import { useEffect } from 'react';
 
@@ -11,6 +13,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <MainLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
@@ -27,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: 'contact',
         element: <ContactPage />
+      },
+      {
+        path: 'portfolio',
+        element: <PortfolioPage />
       }
     ]
   }

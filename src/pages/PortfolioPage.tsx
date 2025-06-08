@@ -38,16 +38,17 @@ const modalStyle = {
 
 const PortfolioPage = () => {
     const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
-    const [activeFilter, setActiveFilter] = useState('All');
+    const [activeFilter, setActiveFilter] = useState('الكل');
+    const [showAllFilters, setShowAllFilters] = useState(false);
 
     const allTags = useMemo(() => {
         const tags = new Set<string>();
         projects.forEach(p => p.tags.forEach(tag => tags.add(tag)));
-        return ['All', ...Array.from(tags)];
+        return ['الكل', ...Array.from(tags)];
     }, []);
 
     const filteredProjects = useMemo(() => {
-        if (activeFilter === 'All') {
+        if (activeFilter === 'الكل') {
             return projects;
         }
         return projects.filter(project => project.tags.includes(activeFilter));
@@ -73,19 +74,19 @@ const PortfolioPage = () => {
                 <Box textAlign="center" mb={10}>
                     <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
                         <Typography variant="h2" component="h1" fontWeight="800" color="primary.main" gutterBottom>
-                            Our Portfolio
+                            المشاريع التي قمنا بتطويرها
                         </Typography>
                     </motion.div>
                     <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
                         <Typography variant="h6" color="text.secondary" sx={{ maxWidth: '700px', mx: 'auto' }}>
-                            We build beautiful, functional, and scalable applications. Here's a selection of projects we're proud of.
+                            هذه هي المشاريع التي قمنا بتطويرها.
                         </Typography>
                     </motion.div>
                 </Box>
 
                 {/* Filter Buttons */}
                 <Box display="flex" justifyContent="center" flexWrap="wrap" gap={2} mb={8}>
-                    {allTags.map((tag) => (
+                    {(showAllFilters ? allTags : allTags.slice(0, 3)).map((tag) => (
                         <motion.div key={tag} whileHover={{ y: -2 }} whileTap={{ scale: 0.95 }}>
                             <Button
                                 variant={activeFilter === tag ? 'contained' : 'outlined'}
@@ -96,6 +97,17 @@ const PortfolioPage = () => {
                             </Button>
                         </motion.div>
                     ))}
+                    {allTags.length > 3 && (
+                        <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.95 }}>
+                            <Button
+                                variant="text"
+                                onClick={() => setShowAllFilters(!showAllFilters)}
+                                sx={{ borderRadius: '999px', textTransform: 'none', px: 3, py: 1 }}
+                            >
+                                {showAllFilters ? 'عرض أقل' : 'عرض المزيد'}
+                            </Button>
+                        </motion.div>
+                    )}
                 </Box>
 
                 {/* Projects Grid */}

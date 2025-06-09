@@ -167,7 +167,8 @@
     min-width: 120px;
     border-radius: 16px;
     background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
+    border: 1px solid rgb(15, 154, 0);
+    box-shadow: 0 4px 20px rgba(44, 255, 1, 0.915);
     backdrop-filter: blur(10px);
     transition: all 0.2s ease;
 }

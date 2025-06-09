@@ -85,16 +85,16 @@ const HeroSection = () => {
                             textDecoration: 'none',
                             fontWeight: 700,
                             fontSize: '1.1rem',
-                            boxShadow: '0 10px 30px -10px rgba(var(--accent-primary-rgb), 0.5)',
+                            boxShadow: '0 10px 30px -10px rgba(var(--shadow-color), 0.2)',
                             transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                         }}
                             onMouseOver={e => {
                                 e.currentTarget.style.transform = 'translateY(-3px)';
-                                e.currentTarget.style.boxShadow = '0 12px 35px -8px rgba(var(--accent-primary-rgb), 0.6)';
+                                e.currentTarget.style.boxShadow = '0 12px 35px -8px rgba(var(--shadow-color), 0.3)';
                             }}
                             onMouseOut={e => {
                                 e.currentTarget.style.transform = 'translateY(0)';
-                                e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(var(--accent-primary-rgb), 0.5)';
+                                e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(var(--shadow-color), 0.2)';
                             }}
                         >
                             اكتشف خدماتنا

@@ -65,6 +65,7 @@ const Navbar = () => {
                     <div className="desktop-nav">
                         <Link to="/" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>الرئيسية</Link>
                         <a href="/#services" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>خدماتنا</a>
+                        <Link to="/pricing" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>الأسعار</Link>
                         <Link to="/about" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>من نحن</Link>
                         <Link to="/portfolio" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>أعمالنا</Link>
                         <Link to="/contact" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>تواصل معنا</Link>
@@ -98,6 +99,7 @@ const Navbar = () => {
                 >
                     <Link to="/" style={{ ...linkStyle, display: 'block', padding: '1rem' }} onClick={() => setIsOpen(false)}>الرئيسية</Link>
                     <a href="/#services" style={{ ...linkStyle, display: 'block', padding: '1rem' }} onClick={() => setIsOpen(false)}>خدماتنا</a>
+                    <Link to="/pricing" style={{ ...linkStyle, display: 'block', padding: '1rem' }} onClick={() => setIsOpen(false)}>الأسعار</Link>
                     <Link to="/about" style={{ ...linkStyle, display: 'block', padding: '1rem' }} onClick={() => setIsOpen(false)}>من نحن</Link>
                     <Link to="/portfolio" style={{ ...linkStyle, display: 'block', padding: '1rem' }} onClick={() => setIsOpen(false)}>أعمالنا</Link>
                     <Link to="/contact" style={{ ...linkStyle, display: 'block', padding: '1rem' }} onClick={() => setIsOpen(false)}>تواصل معنا</Link>

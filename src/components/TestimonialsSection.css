@@ -1,0 +1,25 @@
+/* TestimonialsSection.css */
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--accent-primary) !important;
+    transition: transform 0.2s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    transform: scale(1.2);
+}
+
+.swiper-pagination-bullet {
+    background-color: var(--text-secondary) !important;
+    opacity: 0.6 !important;
+    transition: all 0.2s ease;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--accent-primary) !important;
+    width: 20px !important;
+    border-radius: 5px !important;
+    opacity: 1 !important;
+}

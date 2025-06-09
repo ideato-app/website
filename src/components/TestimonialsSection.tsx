@@ -2,6 +2,13 @@ import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Box, Typography, Container, Avatar, Paper, Stack, Rating, IconButton, useTheme } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import './TestimonialsSection.css';
 
 interface Testimonial {
     id: number;
@@ -110,8 +117,6 @@ const TestimonialCard = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(5),
     borderRadius: theme.shape.borderRadius * 3,
     boxShadow: theme.shadows[3],
-    position: 'absolute',
-    inset: 0,
     display: 'flex',
     flexDirection: 'column',
     [theme.breakpoints.up('md')]: {
@@ -128,6 +133,10 @@ const TestimonialCard = styled(Paper)(({ theme }) => ({
         : `linear-gradient(145deg, ${theme.palette.common.white}, ${theme.palette.grey[50]})`,
     border: `1px solid ${theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.03)'}`,
     backdropFilter: 'blur(10px)',
+    position: 'relative',
+    width: '100%',
+    boxSizing: 'border-box',
+    minHeight: '280px',
 }));
 
 const QuoteIcon = styled('div')(({ theme }) => ({
@@ -148,47 +157,8 @@ const TestimonialAvatar = styled(Avatar)(({ theme }) => ({
     boxShadow: `0 0 0 2px ${theme.palette.mode === 'dark' ? theme.palette.primary.dark : theme.palette.primary.main}40`,
 }));
 
-const IndicatorButton = styled(IconButton, {
-    shouldForwardProp: (prop) => prop !== 'isActive',
-})<{ isActive?: boolean }>(({ theme, isActive }) => ({
-    width: isActive ? theme.spacing(4) : theme.spacing(1.5),
-    height: theme.spacing(1.5),
-    padding: 0,
-    borderRadius: theme.shape.borderRadius * 3,
-    backgroundColor: isActive
-        ? theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.primary.main
-        : theme.palette.mode === 'dark' ? theme.palette.grey[800] : theme.palette.grey[300],
-    transition: theme.transitions.create(['width', 'background-color'], {
-        duration: theme.transitions.duration.standard,
-    }),
-    '&:hover': {
-        backgroundColor: isActive
-            ? theme.palette.mode === 'dark' ? theme.palette.primary.main : theme.palette.primary.dark
-            : theme.palette.mode === 'dark' ? theme.palette.primary.dark : theme.palette.primary.light,
-    }
-}));
-
 const TestimonialsSection = () => {
-    const [activeIndex, setActiveIndex] = useState(0);
-    const intervalRef = useRef<NodeJS.Timeout | null>(null);
     const theme = useTheme();
-
-    const startAutoplay = () => {
-        intervalRef.current = setInterval(() => {
-            setActiveIndex((current) => (current + 1) % testimonials.length);
-        }, 6000);
-    };
-
-    const stopAutoplay = () => {
-        if (intervalRef.current) {
-            clearInterval(intervalRef.current);
-        }
-    };
-
-    useEffect(() => {
-        startAutoplay();
-        return () => stopAutoplay();
-    }, []);
 
     return (
         <SectionWrapper id="testimonials">
@@ -226,135 +196,45 @@ const TestimonialsSection = () => {
                     </SectionSubHeading>
                 </Box>
 
-                <Box
-                    sx={{
-                        maxWidth: '1000px',
-                        mx: 'auto',
-                        position: 'relative',
-                        '&::before': theme.palette.mode === 'dark' ? {
-                            content: '""',
-                            position: 'absolute',
-                            top: '-20px',
-                            left: '-20px',
-                            right: '-20px',
-                            bottom: '-20px',
-                            background: `radial-gradient(circle at center, rgba(30, 41, 59, 0.7) 60%, transparent 100%)`,
-                            opacity: 0.8,
-                            zIndex: -1,
-                        } : {
-                            content: '""',
-                            position: 'absolute',
-                            top: '-20px',
-                            left: '-20px',
-                            right: '-20px',
-                            bottom: '-20px',
-                            background: `radial-gradient(circle at center, ${theme.palette.background.paper} 60%, transparent 100%)`,
-                            opacity: 0.5,
-                            zIndex: -1,
-                        }
+                <Swiper
+                    modules={[Autoplay, Pagination, Navigation]}
+                    spaceBetween={50}
+                    slidesPerView={1}
+                    loop={true}
+                    autoplay={{
+                        delay: 5000,
+                        disableOnInteraction: false,
+                    }}
+                    pagination={{
+                        clickable: true,
+                        dynamicBullets: true,
+                    }}
+                    navigation={true}
+                    style={{
+                        paddingBottom: '50px', // Space for pagination
                     }}
                 >
-                    <Box sx={{ position: 'relative', height: { xs: '450px', md: '300px' } }}>
-                        {testimonials.map((testimonial, index) => (
-                            <Box
-                                component={motion.div}
-                                key={testimonial.id}
-                                initial={{ opacity: 0, x: 100 }}
-                                animate={{
-                                    opacity: activeIndex === index ? 1 : 0,
-                                    x: activeIndex === index ? 0 : 100,
-                                    scale: activeIndex === index ? 1 : 0.9,
-                                }}
-                                transition={{ duration: 0.5 }}
-                            >
-                                <TestimonialCard elevation={2}>
-                                    <QuoteIcon>"</QuoteIcon>
-                                    <Box sx={{ position: 'relative', zIndex: 1 }}>
-                                        <TestimonialAvatar src={testimonial.avatar} alt={testimonial.name} />
-                                        <Box
-                                            component={motion.div}
-                                            animate={{ y: [0, -5, 0] }}
-                                            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                                            sx={{
-                                                position: 'absolute',
-                                                inset: 0,
-                                                borderRadius: '50%',
-                                                background: theme.palette.mode === 'dark'
-                                                    ? `radial-gradient(circle, ${theme.palette.primary.dark}30 0%, transparent 70%)`
-                                                    : `radial-gradient(circle, ${theme.palette.primary.main}30 0%, transparent 70%)`,
-                                                filter: 'blur(10px)',
-                                                opacity: 0.7,
-                                                transform: 'translateY(5px)',
-                                            }}
-                                        />
-                                    </Box>
-                                    <Box sx={{ flex: 1 }}>
-                                        <Rating value={5} readOnly sx={{ mb: 2 }} />
-                                        <Typography
-                                            variant="body1"
-                                            sx={{
-                                                mb: 3,
-                                                fontStyle: 'italic',
-                                                fontWeight: 300,
-                                                lineHeight: 1.8,
-                                                color: theme.palette.mode === 'dark' ? theme.palette.common.white : theme.palette.text.secondary
-                                            }}
-                                        >
-                                            "{testimonial.text}"
+                    {testimonials.map((testimonial) => (
+                        <SwiperSlide key={testimonial.id}>
+                            <TestimonialCard>
+                                <QuoteIcon>"</QuoteIcon>
+                                <TestimonialAvatar src={testimonial.avatar} alt={testimonial.name} />
+                                <Box sx={{ flex: 1 }}>
+                                    <Typography variant="body1" sx={{ fontStyle: 'italic', mb: 3 }}>
+                                        {testimonial.text}
+                                    </Typography>
+                                    <Rating name="read-only" value={5} readOnly />
+                                    <Stack direction="row" alignItems="center" spacing={1} sx={{ mt: 2, justifyContent: { xs: 'center', md: 'flex-end' } }}>
+                                        <Typography variant="h6" sx={{ fontWeight: 'bold' }}>{testimonial.name}</Typography>
+                                        <Typography variant="body2" color="text.secondary">
+                                            - {testimonial.position}, {testimonial.company}
                                         </Typography>
-                                        <Typography
-                                            variant="h6"
-                                            fontWeight={700}
-                                            sx={{
-                                                color: theme.palette.mode === 'dark' ? theme.palette.common.white : theme.palette.text.primary
-                                            }}
-                                        >
-                                            {testimonial.name}
-                                        </Typography>
-                                        <Typography
-                                            variant="subtitle2"
-                                            sx={{
-                                                background: theme.palette.mode === 'dark'
-                                                    ? `linear-gradient(90deg, ${theme.palette.primary.light}, ${theme.palette.secondary.light})`
-                                                    : `linear-gradient(90deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
-                                                WebkitBackgroundClip: 'text',
-                                                WebkitTextFillColor: 'transparent',
-                                                fontWeight: 600
-                                            }}
-                                        >
-                                            {testimonial.position} | {testimonial.company}
-                                        </Typography>
-                                    </Box>
-                                </TestimonialCard>
-                            </Box>
-                        ))}
-                    </Box>
-
-                    <Stack
-                        direction="row"
-                        spacing={1}
-                        justifyContent="center"
-                        sx={{ mt: 4 }}
-                        component={motion.div}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.8 }}
-                    >
-                        {testimonials.map((_, index) => (
-                            <IndicatorButton
-                                key={index}
-                                isActive={activeIndex === index}
-                                onClick={() => {
-                                    setActiveIndex(index);
-                                    stopAutoplay();
-                                    startAutoplay();
-                                }}
-                                aria-label={`View testimonial ${index + 1}`}
-                                size="small"
-                            />
-                        ))}
-                    </Stack>
-                </Box>
+                                    </Stack>
+                                </Box>
+                            </TestimonialCard>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
             </Container>
         </SectionWrapper>
     );

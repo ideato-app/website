@@ -1,37 +1,12 @@
-import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useThemeContext } from './ThemeProvider';
 
 interface DarkModeToggleProps {
     isNavbar?: boolean;
 }
 
 const DarkModeToggle = ({ isNavbar = false }: DarkModeToggleProps) => {
-    const [isDarkMode, setIsDarkMode] = useState(false);
-
-    useEffect(() => {
-        // Check for user preference on initial load
-        if (localStorage.theme === 'dark' ||
-            (!('theme' in localStorage) &&
-                window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            setIsDarkMode(true);
-            document.documentElement.classList.add('dark-mode');
-        } else {
-            setIsDarkMode(false);
-            document.documentElement.classList.remove('dark-mode');
-        }
-    }, []);
-
-    const toggleDarkMode = () => {
-        if (isDarkMode) {
-            document.documentElement.classList.remove('dark-mode');
-            localStorage.theme = 'light';
-            setIsDarkMode(false);
-        } else {
-            document.documentElement.classList.add('dark-mode');
-            localStorage.theme = 'dark';
-            setIsDarkMode(true);
-        }
-    };
+    const { isDarkMode, toggleDarkMode } = useThemeContext();
 
     const buttonStyle = {
         padding: '0.5rem',
@@ -45,11 +20,16 @@ const DarkModeToggle = ({ isNavbar = false }: DarkModeToggleProps) => {
         boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
     };
 
+    // Force re-render of components when theme changes
+    const handleToggle = () => {
+        toggleDarkMode();
+    };
+
     return (
         <motion.button
             whileTap={{ scale: 0.9 }}
             whileHover={{ scale: 1.1 }}
-            onClick={toggleDarkMode}
+            onClick={handleToggle}
             style={buttonStyle}
             aria-label="Toggle Dark Mode"
             className={`theme-toggle-btn ${isNavbar ? '' : 'fixed'}`}

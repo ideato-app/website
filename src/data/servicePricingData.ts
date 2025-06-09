@@ -5,6 +5,7 @@ export interface PricingPlan {
     priceDetails: string;
     features: string[];
     isRecommended?: boolean;
+    cta?: string;
 }
 
 export interface ServicePricing {
@@ -37,6 +38,7 @@ export const servicePricingData: ServicePricing[] = [
                     'شهادة أمان SSL',
                     'استضافة مجانية لمدة سنة',
                 ],
+                cta: 'ابدأ الآن',
             },
             {
                 id: 'web-business',
@@ -56,6 +58,7 @@ export const servicePricingData: ServicePricing[] = [
                     'ربط مع حسابات التواصل الاجتماعي',
                 ],
                 isRecommended: true,
+                cta: 'اختر الباقة المميزة',
             },
             {
                 id: 'web-enterprise',
@@ -74,6 +77,7 @@ export const servicePricingData: ServicePricing[] = [
                     'دعم فني مخصص على مدار الساعة',
                     'تحديثات دورية وتطوير مستمر',
                 ],
+                cta: 'اطلب عرض سعر',
             },
         ],
     },
@@ -98,6 +102,7 @@ export const servicePricingData: ServicePricing[] = [
                     'إمكانية النشر على المتاجر',
                     'دعم فني لمدة شهرين',
                 ],
+                cta: 'اطلق نسختك الأولى',
             },
             {
                 id: 'app-full',
@@ -118,6 +123,7 @@ export const servicePricingData: ServicePricing[] = [
                     'دعم فني لمدة 6 أشهر',
                 ],
                 isRecommended: true,
+                cta: 'اطلب الآن',
             },
             {
                 id: 'app-suite',
@@ -136,6 +142,7 @@ export const servicePricingData: ServicePricing[] = [
                     'تحديثات دورية مجانية',
                     'تدريب فريق العمل على الاستخدام',
                 ],
+                cta: 'اطلب الآن',
             },
         ],
     },
@@ -160,6 +167,7 @@ export const servicePricingData: ServicePricing[] = [
                     'خطة عمل مبنية على النتائج',
                     'تدريب فريقك على التحليل الأساسي',
                 ],
+                cta: 'اطلب الآن',
             },
             {
                 id: 'ai-integration',
@@ -179,6 +187,7 @@ export const servicePricingData: ServicePricing[] = [
                     'توثيق كامل للنظام',
                 ],
                 isRecommended: true,
+                cta: 'اجعل أنظمتك ذكية',
             },
             {
                 id: 'ai-custom',
@@ -197,6 +206,7 @@ export const servicePricingData: ServicePricing[] = [
                     'أنظمة اتخاذ قرار مؤتمتة',
                     'حلول تعلم معزز وتعلم ذاتي',
                 ],
+                cta: 'اطلب الآن',
             },
         ],
     },
@@ -221,6 +231,7 @@ export const servicePricingData: ServicePricing[] = [
                     'تحسينات فورية سريعة التنفيذ',
                     'جلسة استشارية مع فريق التطوير',
                 ],
+                cta: 'اطلب الآن',
             },
             {
                 id: 'ui-design-system',
@@ -240,6 +251,7 @@ export const servicePricingData: ServicePricing[] = [
                     'التكيف مع متطلبات الهوية البصرية',
                 ],
                 isRecommended: true,
+                cta: 'اطلب الآن',
             },
             {
                 id: 'ui-full-branding',
@@ -258,6 +270,7 @@ export const servicePricingData: ServicePricing[] = [
                     'تصميم تجربة عملاء شاملة',
                     'تصاميم منتجات وعبوات',
                 ],
+                cta: 'اطلب الآن',
             },
         ],
     },
@@ -282,6 +295,7 @@ export const servicePricingData: ServicePricing[] = [
                     'تقييم أساسي للبنية التحتية',
                     'فحص شهادات الأمان',
                 ],
+                cta: 'اطلب الآن',
             },
             {
                 id: 'security-pentest',
@@ -301,6 +315,7 @@ export const servicePricingData: ServicePricing[] = [
                     'تدريب فريق التطوير على أساسيات الأمان',
                 ],
                 isRecommended: true,
+                cta: 'أمّن أنظمتك الآن',
             },
             {
                 id: 'security-consulting',
@@ -319,6 +334,7 @@ export const servicePricingData: ServicePricing[] = [
                     'مراقبة أمنية على مدار الساعة',
                     'تشفير البيانات وحماية المعلومات الحساسة',
                 ],
+                cta: 'تواصل مع خبرائنا',
             },
         ],
     },
@@ -343,6 +359,7 @@ export const servicePricingData: ServicePricing[] = [
                     'تثبيت تطبيقات بنقرة واحدة',
                     'حماية أساسية من هجمات DDoS',
                 ],
+                cta: 'اطلب الآن',
             },
             {
                 id: 'hosting-vps',
@@ -362,6 +379,7 @@ export const servicePricingData: ServicePricing[] = [
                     'حماية متقدمة وجدار ناري',
                 ],
                 isRecommended: true,
+                cta: 'اطلب الآن',
             },
             {
                 id: 'hosting-cloud',
@@ -380,6 +398,7 @@ export const servicePricingData: ServicePricing[] = [
                     'استراتيجيات تعافي من الكوارث',
                     'الدعم على مدار الساعة للحالات الحرجة',
                 ],
+                cta: 'اطلب الآن',
             },
         ],
     },

@@ -67,8 +67,8 @@ const PageContainer = styled(Box)(({ theme }) => ({
     padding: theme.spacing(8, 0, 6),
     overflow: 'hidden',
     backgroundColor: theme.palette.mode === 'dark'
-        ? 'rgba(13, 17, 23, 0.97)'
-        : 'rgba(248, 249, 250, 0.97)',
+        ? 'rgba(10, 15, 25, 0.97)'
+        : 'rgba(255, 255, 255, 0.97)',
 }));
 
 const AuroraBackground = styled(Box)(() => ({
@@ -85,7 +85,7 @@ const AuroraShape = styled(motion.div)(({ theme }) => ({
     position: 'absolute',
     borderRadius: '50%',
     filter: 'blur(100px)',
-    opacity: theme.palette.mode === 'dark' ? 0.2 : 0.5,
+    opacity: theme.palette.mode === 'dark' ? 0.15 : 0.5,
     background: theme.palette.mode === 'dark'
         ? `radial-gradient(circle, ${theme.palette.primary.dark} 0%, ${theme.palette.secondary.dark} 100%)`
         : `radial-gradient(circle, ${theme.palette.primary.light} 0%, ${theme.palette.secondary.light} 100%)`,
@@ -120,21 +120,21 @@ const ContentBox = styled(Paper)(({ theme }) => ({
     marginBottom: theme.spacing(5),
     borderRadius: 16,
     boxShadow: theme.palette.mode === 'dark'
-        ? '0 10px 30px rgba(0, 0, 0, 0.2)'
+        ? '0 10px 30px rgba(0, 0, 0, 0.3)'
         : '0 10px 30px rgba(0, 0, 0, 0.05)',
     position: 'relative',
     zIndex: 1,
     backgroundColor: theme.palette.mode === 'dark'
-        ? 'rgba(22, 27, 34, 0.7)'
+        ? 'rgba(17, 25, 40, 0.8)'
         : 'rgba(255, 255, 255, 0.8)',
-    border: `1px solid ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.03)'}`,
+    border: `1px solid ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.03)'}`,
     backdropFilter: 'blur(10px)',
     overflow: 'hidden',
     transition: 'transform 0.3s ease, box-shadow 0.3s ease',
     '&:hover': {
         transform: 'translateY(-5px)',
         boxShadow: theme.palette.mode === 'dark'
-            ? '0 15px 35px rgba(0, 0, 0, 0.25)'
+            ? '0 15px 35px rgba(0, 0, 0, 0.35)'
             : '0 15px 35px rgba(0, 0, 0, 0.1)',
     },
     '&::before': {
@@ -158,7 +158,7 @@ const SectionTitle = styled(Typography)(({ theme }) => ({
     position: 'relative',
     display: 'inline-block',
     background: theme.palette.mode === 'dark'
-        ? `linear-gradient(120deg, ${theme.palette.primary.light}, ${theme.palette.secondary.light})`
+        ? `linear-gradient(120deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`
         : `linear-gradient(120deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
@@ -172,13 +172,13 @@ const SectionTitle = styled(Typography)(({ theme }) => ({
         height: 3,
         borderRadius: 2,
         background: theme.palette.mode === 'dark'
-            ? `linear-gradient(90deg, transparent, ${theme.palette.primary.light}, transparent)`
+            ? `linear-gradient(90deg, transparent, ${theme.palette.primary.main}, transparent)`
             : `linear-gradient(90deg, transparent, ${theme.palette.primary.main}, transparent)`,
     }
 }));
 
 const SubTitle = styled(Typography)(({ theme }) => ({
-    color: theme.palette.mode === 'dark' ? theme.palette.common.white : theme.palette.text.secondary,
+    color: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.85)' : theme.palette.text.secondary,
     textAlign: 'center',
     fontSize: '1.15rem',
     maxWidth: '750px',
@@ -196,18 +196,18 @@ const TeamMemberPaper = styled(Paper)(({ theme }) => ({
     borderRadius: 16,
     overflow: 'hidden',
     boxShadow: theme.palette.mode === 'dark'
-        ? '0 10px 30px rgba(0, 0, 0, 0.2)'
+        ? '0 10px 30px rgba(0, 0, 0, 0.3)'
         : '0 10px 30px rgba(0, 0, 0, 0.05)',
     background: theme.palette.mode === 'dark'
-        ? 'linear-gradient(145deg, rgba(22, 27, 34, 0.6), rgba(17, 24, 39, 0.8))'
+        ? 'linear-gradient(145deg, rgba(19, 26, 43, 0.8), rgba(15, 23, 42, 0.95))'
         : 'linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(249, 250, 251, 0.9))',
-    border: `1px solid ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.03)'}`,
+    border: `1px solid ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.03)'}`,
     backdropFilter: 'blur(10px)',
     transition: 'transform 0.3s ease, box-shadow 0.3s ease',
     '&:hover': {
         transform: 'translateY(-10px)',
         boxShadow: theme.palette.mode === 'dark'
-            ? '0 20px 40px rgba(0, 0, 0, 0.3)'
+            ? '0 20px 40px rgba(0, 0, 0, 0.4)'
             : '0 20px 40px rgba(0, 0, 0, 0.1)',
     },
 }));
@@ -218,10 +218,10 @@ const TeamMemberImage = styled('img')(({ theme }) => ({
     borderRadius: '50%',
     objectFit: 'cover',
     marginBottom: theme.spacing(2),
-    border: `4px solid ${theme.palette.background.paper}`,
+    border: `4px solid ${theme.palette.mode === 'dark' ? 'rgba(30, 41, 59, 0.8)' : theme.palette.background.paper}`,
     boxShadow: theme.palette.mode === 'dark'
-        ? `0 0 0 2px ${theme.palette.primary.dark}`
-        : `0 0 0 2px ${theme.palette.primary.main}`,
+        ? `0 0 0 2px ${theme.palette.primary.dark}, 0 0 15px rgba(${theme.palette.primary.main}, 0.5)`
+        : `0 0 0 2px ${theme.palette.primary.main}, 0 0 15px rgba(${theme.palette.primary.main}, 0.2)`,
 }));
 
 const TeamMemberName = styled(Typography)(({ theme }) => ({
@@ -232,7 +232,7 @@ const TeamMemberName = styled(Typography)(({ theme }) => ({
 }));
 
 const TeamMemberRole = styled(Typography)(({ theme }) => ({
-    color: theme.palette.mode === 'dark' ? theme.palette.grey[300] : theme.palette.text.secondary,
+    color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.text.secondary,
     fontSize: '0.95rem',
 }));
 
@@ -245,7 +245,7 @@ const SocialIconsWrapper = styled(Box)(({ theme }) => ({
 
 const SocialIconButton = styled(IconButton)(({ theme }) => ({
     color: theme.palette.mode === 'dark' ? theme.palette.grey[400] : theme.palette.grey[700],
-    backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.03)',
+    backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.03)',
     padding: theme.spacing(1),
     transition: 'all 0.2s ease',
     '&:hover': {
@@ -257,7 +257,7 @@ const SocialIconButton = styled(IconButton)(({ theme }) => ({
 
 const TeamBioText = styled(Typography)(({ theme }) => ({
     fontSize: '0.9rem',
-    color: theme.palette.mode === 'dark' ? theme.palette.grey[400] : theme.palette.text.secondary,
+    color: theme.palette.mode === 'dark' ? theme.palette.grey[300] : theme.palette.text.secondary,
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
     lineHeight: 1.6,
@@ -270,8 +270,8 @@ const SkillTag = styled(Box)(({ theme }) => ({
     borderRadius: '12px',
     fontSize: '0.75rem',
     fontWeight: 600,
-    backgroundColor: theme.palette.mode === 'dark' ? 'rgba(125, 211, 252, 0.15)' : 'rgba(59, 130, 246, 0.1)',
-    color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.primary.main,
+    backgroundColor: theme.palette.mode === 'dark' ? 'rgba(56, 189, 248, 0.15)' : 'rgba(59, 130, 246, 0.1)',
+    color: theme.palette.mode === 'dark' ? '#38bdf8' : theme.palette.primary.main,
 }));
 
 const ValueCard = styled(Paper)(({ theme }) => ({
@@ -283,18 +283,18 @@ const ValueCard = styled(Paper)(({ theme }) => ({
     height: '100%',
     borderRadius: 16,
     boxShadow: theme.palette.mode === 'dark'
-        ? '0 8px 20px rgba(0, 0, 0, 0.2)'
+        ? '0 8px 20px rgba(0, 0, 0, 0.25)'
         : '0 8px 20px rgba(0, 0, 0, 0.05)',
     background: theme.palette.mode === 'dark'
-        ? 'linear-gradient(145deg, rgba(22, 27, 34, 0.8), rgba(17, 24, 39, 0.9))'
+        ? 'linear-gradient(145deg, rgba(19, 26, 43, 0.8), rgba(15, 23, 42, 0.9))'
         : 'linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(249, 250, 251, 0.95))',
-    border: `1px solid ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.03)'}`,
+    border: `1px solid ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.03)'}`,
     backdropFilter: 'blur(10px)',
     transition: 'transform 0.3s ease, box-shadow 0.3s ease',
     '&:hover': {
         transform: 'translateY(-5px)',
         boxShadow: theme.palette.mode === 'dark'
-            ? '0 15px 30px rgba(0, 0, 0, 0.25)'
+            ? '0 15px 30px rgba(0, 0, 0, 0.35)'
             : '0 15px 30px rgba(0, 0, 0, 0.1)',
     },
 }));
@@ -308,12 +308,12 @@ const IconWrapper = styled(Box)(({ theme }) => ({
     borderRadius: '50%',
     marginBottom: theme.spacing(2),
     background: theme.palette.mode === 'dark'
-        ? `linear-gradient(135deg, ${theme.palette.primary.dark}80, ${theme.palette.secondary.dark}80)`
+        ? `linear-gradient(135deg, ${theme.palette.primary.dark}cc, ${theme.palette.secondary.dark}cc)`
         : `linear-gradient(135deg, ${theme.palette.primary.light}40, ${theme.palette.secondary.light}40)`,
     color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.primary.main,
     fontSize: '2rem',
     boxShadow: theme.palette.mode === 'dark'
-        ? '0 5px 15px rgba(0, 0, 0, 0.3)'
+        ? '0 5px 15px rgba(0, 0, 0, 0.4), 0 0 15px rgba(59, 130, 246, 0.1)'
         : '0 5px 15px rgba(0, 0, 0, 0.1)',
 }));
 
@@ -521,7 +521,7 @@ const AboutPage = () => {
                     className="aurora-shape-1"
                     animate={{
                         x: [0, 30, 0],
-                        opacity: [0.3, 0.4, 0.3]
+                        opacity: [0.15, 0.2, 0.15]
                     }}
                     transition={{
                         duration: 20,
@@ -533,7 +533,7 @@ const AboutPage = () => {
                     className="aurora-shape-2"
                     animate={{
                         x: [0, -30, 0],
-                        opacity: [0.3, 0.4, 0.3]
+                        opacity: [0.15, 0.2, 0.15]
                     }}
                     transition={{
                         duration: 25,
@@ -545,7 +545,7 @@ const AboutPage = () => {
                     className="aurora-shape-3"
                     animate={{
                         scale: [1, 1.2, 1],
-                        opacity: [0.2, 0.3, 0.2]
+                        opacity: [0.1, 0.15, 0.1]
                     }}
                     transition={{
                         duration: 15,

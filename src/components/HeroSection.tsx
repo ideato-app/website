@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -75,8 +76,8 @@ const HeroSection = () => {
                         }}
                     >
                         نحن نقدم خدمات متكاملة لتحويل أفكارك إلى تطبيقات ومواقع إلكترونية احترافية                    </motion.p>
-                    <motion.div variants={itemVariants}>
-                        <a href="#services" style={{
+                    <motion.div variants={itemVariants} style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+                        <a href="/#services" style={{
                             display: 'inline-block',
                             background: 'linear-gradient(45deg, var(--accent-primary), var(--accent-secondary))',
                             color: '#ffffff',
@@ -99,6 +100,31 @@ const HeroSection = () => {
                         >
                             اكتشف خدماتنا
                         </a>
+                        <Link to="/portfolio" style={{
+                            display: 'inline-block',
+                            background: 'transparent',
+                            color: 'var(--accent-primary)',
+                            padding: '1rem 2.5rem',
+                            borderRadius: '50px',
+                            textDecoration: 'none',
+                            fontWeight: 700,
+                            fontSize: '1.1rem',
+                            border: '2px solid var(--accent-primary)',
+                            transition: 'transform 0.3s ease, background-color 0.3s ease, color 0.3s ease',
+                        }}
+                            onMouseOver={e => {
+                                e.currentTarget.style.transform = 'translateY(-3px)';
+                                e.currentTarget.style.backgroundColor = 'var(--accent-primary)';
+                                e.currentTarget.style.color = '#ffffff';
+                            }}
+                            onMouseOut={e => {
+                                e.currentTarget.style.transform = 'translateY(0)';
+                                e.currentTarget.style.backgroundColor = 'transparent';
+                                e.currentTarget.style.color = 'var(--accent-primary)';
+                            }}
+                        >
+                            أعمالنا
+                        </Link>
                     </motion.div>
                 </motion.div>
             </div>

@@ -15,7 +15,9 @@ interface PricingCardProps {
     plan: PricingPlan;
 }
 
-const StyledPaper = styled(Paper)<{ isRecommended?: boolean }>(({ theme, isRecommended }) => ({
+const StyledPaper = styled(Paper, {
+    shouldForwardProp: (prop) => prop !== 'isRecommended',
+})<{ isRecommended?: boolean }>(({ theme, isRecommended }) => ({
     padding: theme.spacing(5, 3),
     textAlign: 'center',
     border: isRecommended ? `2px solid ${theme.palette.primary.main}` : `1px solid ${theme.palette.divider}`,

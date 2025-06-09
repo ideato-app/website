@@ -8,21 +8,30 @@
 :root {
   /* Light Theme */
   --bg-primary: #f8f9fa;
+  --bg-primary-rgb: 248, 249, 250;
   --bg-secondary: #ffffff;
+  --bg-secondary-rgb: 255, 255, 255;
   --bg-tertiary: #e9ecef;
   --text-primary: #212529;
+  --text-primary-rgb: 33, 37, 41;
   --text-secondary: #495057;
+  --text-secondary-rgb: 73, 80, 87;
   --border-color: #dee2e6;
   --accent-primary: #8338ec;
+  --accent-primary-rgb: 131, 56, 236;
   --accent-secondary: #3a86ff;
+  --accent-secondary-rgb: 58, 134, 255;
   --shadow-color: 220, 220, 220;
   --primary-color: #3b82f6;
+  --primary-color-rgb: 59, 130, 246;
   --primary-dark: #2563eb;
   --primary-light: #60a5fa;
   --secondary-color: #6366f1;
+  --secondary-color-rgb: 99, 102, 241;
   --secondary-dark: #4f46e5;
   --secondary-light: #818cf8;
   --bg-color: #ffffff;
+  --bg-color-rgb: 255, 255, 255;
   --bg-alt-color: #f9fafb;
   --text-muted: #9ca3af;
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -53,49 +62,86 @@
 }
 
 .dark-mode {
-  /* Dark Theme */
-  --bg-primary: #0D1117;
-  --bg-secondary: #161B22;
-  --bg-tertiary: #21262d;
-  --text-primary: #e6edf3;
-  --text-secondary: #a1aab8;
-  --border-color: #30363d;
-  --accent-primary: #c392ff;
-  --accent-secondary: #58a6ff;
+  /* Dark Theme - Enhanced */
+  --bg-primary: #0f172a;
+  /* Deeper blue-black for better contrast */
+  --bg-primary-rgb: 15, 23, 42;
+  /* Slate-800 for better contrast */
+  --bg-secondary: #1e293b;
+  /* Slate-800 */
+  --bg-secondary-rgb: 30, 41, 59;
+  /* Slate-700 for better contrast */
+  --bg-tertiary: #334155;
+  /* Slate-700 */
+  --text-primary: #f1f5f9;
+  /* Brighter white text */
+  --text-primary-rgb: 241, 245, 249;
+  /* Brighter white text */
+  --text-secondary: #cbd5e1;
+  /* Lighter secondary text */
+  --text-secondary-rgb: 203, 213, 225;
+  /* Lighter secondary text */
+  --border-color: #475569;
+  /* Brighter border for better visibility */
+  --accent-primary: #c4b5fd;
+  /* Lighter purple for better visibility */
+  --accent-primary-rgb: 196, 181, 253;
+  /* Lighter purple for better visibility */
+  --accent-secondary: #7dd3fc;
+  /* Lighter blue for better visibility */
+  --accent-secondary-rgb: 125, 211, 252;
+  /* Lighter blue for better visibility */
   --shadow-color: 0, 0, 0;
-  --primary-color: #60a5fa;
-  --primary-dark: #3b82f6;
-  --primary-light: #93c5fd;
-  --secondary-color: #818cf8;
-  --secondary-dark: #6366f1;
-  --secondary-light: #a5b4fc;
-  --bg-color: #111827;
-  --bg-alt-color: #1f2937;
-  --text-color: #f9fafb;
-  --text-muted: #9ca3af;
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  --primary-color: #7dd3fc;
+  /* Lighter blue */
+  --primary-color-rgb: 125, 211, 252;
+  /* Lighter blue */
+  --primary-dark: #38bdf8;
+  /* Sky-400 */
+  --primary-light: #bae6fd;
+  /* Sky-200 */
+  --secondary-color: #c4b5fd;
+  /* Lighter purple */
+  --secondary-color-rgb: 196, 181, 253;
+  /* Lighter purple */
+  --secondary-dark: #a78bfa;
+  /* Violet-400 */
+  --secondary-light: #ddd6fe;
+  /* Violet-200 */
+  --bg-color: #0f172a;
+  /* Slate-900 */
+  --bg-color-rgb: 15, 23, 42;
+  /* Slate-800 */
+  --bg-alt-color: #1e293b;
+  /* Slate-800 */
+  --text-color: #f1f5f9;
+  /* Slate-100 */
+  --text-muted: #94a3b8;
+  /* Slate-400 */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
 
-  /* CTA Section Variables */
-  --cta-bg-color: rgba(14, 21, 37, 0.9);
-  --cta-gradient: radial-gradient(circle at 20% 30%, rgba(96, 165, 250, 0.4) 0%, transparent 40%),
-    radial-gradient(circle at 80% 80%, rgba(129, 140, 248, 0.4) 0%, transparent 40%);
-  --cta-content-bg: linear-gradient(135deg, rgba(23, 36, 60, 0.6) 0%, rgba(15, 23, 42, 0.6) 100%);
-  --cta-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  --cta-border-color: rgba(255, 255, 255, 0.05);
-  --cta-heading-underline: linear-gradient(90deg, transparent, #93c5fd, transparent);
-  --cta-gradient-text: linear-gradient(120deg, #93c5fd, #a5b4fc);
-  --cta-btn-primary-bg: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
-  --cta-btn-primary-hover-shadow: 0 0 25px rgba(96, 165, 250, 0.5);
-  --cta-btn-secondary-bg: rgba(255, 255, 255, 0.1);
-  --cta-btn-secondary-border: rgba(255, 255, 255, 0.1);
-  --cta-btn-secondary-hover-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-  --cta-btn-secondary-hover-bg: rgba(255, 255, 255, 0.15);
-  --cta-floating-element-bg: radial-gradient(circle, rgba(96, 165, 250, 0.6) 0%, transparent 70%);
-  --cta-dots-opacity: 0.1;
-  --cta-dots-bg: radial-gradient(#93c5fd 1px, transparent 1px);
+  /* CTA Section Variables - Enhanced */
+  --cta-bg-color: rgba(15, 23, 42, 0.95);
+  /* Darker, more saturated background */
+  --cta-gradient: radial-gradient(circle at 20% 30%, rgba(125, 211, 252, 0.5) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(196, 181, 253, 0.5) 0%, transparent 40%);
+  --cta-content-bg: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.8) 100%);
+  --cta-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  --cta-border-color: rgba(255, 255, 255, 0.08);
+  --cta-heading-underline: linear-gradient(90deg, transparent, #7dd3fc, transparent);
+  --cta-gradient-text: linear-gradient(120deg, #bae6fd, #ddd6fe);
+  --cta-btn-primary-bg: linear-gradient(135deg, #38bdf8 0%, #7dd3fc 100%);
+  --cta-btn-primary-hover-shadow: 0 0 25px rgba(125, 211, 252, 0.6);
+  --cta-btn-secondary-bg: rgba(255, 255, 255, 0.15);
+  --cta-btn-secondary-border: rgba(255, 255, 255, 0.15);
+  --cta-btn-secondary-hover-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+  --cta-btn-secondary-hover-bg: rgba(255, 255, 255, 0.2);
+  --cta-floating-element-bg: radial-gradient(circle, rgba(125, 211, 252, 0.7) 0%, transparent 70%);
+  --cta-dots-opacity: 0.15;
+  --cta-dots-bg: radial-gradient(#7dd3fc 1px, transparent 1px);
 }
 
 *,

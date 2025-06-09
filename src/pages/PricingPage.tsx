@@ -39,7 +39,7 @@ function TabPanel(props: TabPanelProps) {
 const PricingPage = () => {
     const [value, setValue] = useState(0);
 
-    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
     };
 
@@ -78,7 +78,7 @@ const PricingPage = () => {
                     </Tabs>
                 </Box>
 
-                <AnimatePresence exitBeforeEnter>
+                <AnimatePresence mode="wait">
                     {servicePricingData.map((service, index) => (
                         <TabPanel key={service.serviceId} value={value} index={index}>
                             <Box

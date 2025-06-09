@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Box, Typography, Container, Grid, Paper, useTheme, useMediaQuery } from '@mui/material';
+import { Box, Typography, Container, Paper, useTheme, useMediaQuery } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 interface Feature {

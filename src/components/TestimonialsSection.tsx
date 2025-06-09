@@ -1,13 +1,9 @@
-import { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { Box, Typography, Container, Avatar, Paper, Stack, Rating, IconButton, useTheme } from '@mui/material';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Box, Typography, Container, Avatar, Paper, Stack, Rating, useTheme, IconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import './TestimonialsSection.css';
 
 interface Testimonial {
@@ -115,7 +111,7 @@ const SectionSubHeading = styled(Typography)(({ theme }) => ({
 
 const TestimonialCard = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(5),
-    borderRadius: theme.shape.borderRadius * 3,
+    borderRadius: 24,
     boxShadow: theme.shadows[3],
     display: 'flex',
     flexDirection: 'column',
@@ -157,8 +153,78 @@ const TestimonialAvatar = styled(Avatar)(({ theme }) => ({
     boxShadow: `0 0 0 2px ${theme.palette.mode === 'dark' ? theme.palette.primary.dark : theme.palette.primary.main}40`,
 }));
 
+const NavigationButton = styled(IconButton)(({ theme }) => ({
+    backgroundColor: theme.palette.background.paper,
+    color: theme.palette.primary.main,
+    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+    '&:hover': {
+        backgroundColor: theme.palette.primary.main,
+        color: theme.palette.common.white,
+        transform: 'scale(1.1)',
+    },
+    transition: 'all 0.3s ease',
+}));
+
+const PaginationDot = styled(Box, {
+    shouldForwardProp: (prop) => prop !== 'active',
+})<{ active?: boolean }>(({ theme, active }) => ({
+    width: active ? 20 : 10,
+    height: 10,
+    borderRadius: active ? 5 : '50%',
+    backgroundColor: active ? theme.palette.primary.main : theme.palette.text.secondary,
+    opacity: active ? 1 : 0.6,
+    margin: '0 5px',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    '&:hover': {
+        opacity: 1,
+    },
+}));
+
 const TestimonialsSection = () => {
     const theme = useTheme();
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [direction, setDirection] = useState(0);
+    
+    // Auto-advance testimonials
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setDirection(1);
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+        }, 5000);
+        
+        return () => clearInterval(timer);
+    }, []);
+    
+    const handleNext = () => {
+        setDirection(1);
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+    };
+    
+    const handlePrev = () => {
+        setDirection(-1);
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
+    };
+    
+    const handleDotClick = (index: number) => {
+        setDirection(index > currentIndex ? 1 : -1);
+        setCurrentIndex(index);
+    };
+
+    const variants = {
+        enter: (direction: number) => ({
+            x: direction > 0 ? 1000 : -1000,
+            opacity: 0
+        }),
+        center: {
+            x: 0,
+            opacity: 1
+        },
+        exit: (direction: number) => ({
+            x: direction < 0 ? 1000 : -1000,
+            opacity: 0
+        })
+    };
 
     return (
         <SectionWrapper id="testimonials">
@@ -196,45 +262,68 @@ const TestimonialsSection = () => {
                     </SectionSubHeading>
                 </Box>
 
-                <Swiper
-                    modules={[Autoplay, Pagination, Navigation]}
-                    spaceBetween={50}
-                    slidesPerView={1}
-                    loop={true}
-                    autoplay={{
-                        delay: 5000,
-                        disableOnInteraction: false,
-                    }}
-                    pagination={{
-                        clickable: true,
-                        dynamicBullets: true,
-                    }}
-                    navigation={true}
-                    style={{
-                        paddingBottom: '50px', // Space for pagination
-                    }}
-                >
-                    {testimonials.map((testimonial) => (
-                        <SwiperSlide key={testimonial.id}>
+                <Box sx={{ position: 'relative', overflow: 'hidden', mb: 4 }}>
+                    <AnimatePresence initial={false} custom={direction} mode="wait">
+                        <motion.div
+                            key={currentIndex}
+                            custom={direction}
+                            variants={variants}
+                            initial="enter"
+                            animate="center"
+                            exit="exit"
+                            transition={{
+                                x: { type: "spring", stiffness: 300, damping: 30 },
+                                opacity: { duration: 0.2 }
+                            }}
+                        >
                             <TestimonialCard>
                                 <QuoteIcon>"</QuoteIcon>
-                                <TestimonialAvatar src={testimonial.avatar} alt={testimonial.name} />
+                                <TestimonialAvatar src={testimonials[currentIndex].avatar} alt={testimonials[currentIndex].name} />
                                 <Box sx={{ flex: 1 }}>
                                     <Typography variant="body1" sx={{ fontStyle: 'italic', mb: 3 }}>
-                                        {testimonial.text}
+                                        {testimonials[currentIndex].text}
                                     </Typography>
                                     <Rating name="read-only" value={5} readOnly />
                                     <Stack direction="row" alignItems="center" spacing={1} sx={{ mt: 2, justifyContent: { xs: 'center', md: 'flex-end' } }}>
-                                        <Typography variant="h6" sx={{ fontWeight: 'bold' }}>{testimonial.name}</Typography>
+                                        <Typography variant="h6" sx={{ fontWeight: 'bold' }}>{testimonials[currentIndex].name}</Typography>
                                         <Typography variant="body2" color="text.secondary">
-                                            - {testimonial.position}, {testimonial.company}
+                                            - {testimonials[currentIndex].position}, {testimonials[currentIndex].company}
                                         </Typography>
                                     </Stack>
                                 </Box>
                             </TestimonialCard>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
+                        </motion.div>
+                    </AnimatePresence>
+                </Box>
+                
+                {/* Navigation controls */}
+                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 2, mt: 4 }}>
+                    <NavigationButton 
+                        onClick={handlePrev} 
+                        aria-label="Previous testimonial"
+                        size="medium"
+                    >
+                        <ArrowBackIcon />
+                    </NavigationButton>
+                    
+                    <Box sx={{ display: 'flex' }}>
+                        {testimonials.map((_, index) => (
+                            <PaginationDot 
+                                key={index} 
+                                active={index === currentIndex} 
+                                onClick={() => handleDotClick(index)}
+                            />
+                        ))}
+                    </Box>
+                    
+                    <NavigationButton 
+                        onClick={handleNext} 
+                        aria-label="Next testimonial"
+                        size="medium"
+                    >
+                        <ArrowForwardIcon />
+                    </NavigationButton>
+                </Box>
             </Container>
         </SectionWrapper>
     );

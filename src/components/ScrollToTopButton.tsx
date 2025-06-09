@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Fab, useTheme, alpha } from '@mui/material';
+import { Fab, alpha } from '@mui/material';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { styled } from '@mui/material/styles';
 
@@ -51,7 +51,6 @@ const AnimatedIcon = styled(motion.div)({
 const ScrollToTopButton = () => {
     const [visible, setVisible] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
-    const theme = useTheme();
 
     useEffect(() => {
         const toggleVisibility = () => {
@@ -89,9 +88,13 @@ const ScrollToTopButton = () => {
                         size="medium"
                         aria-label="scroll back to top"
                         onClick={scrollToTop}
-                        component={motion.button}
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
+                        sx={{
+                            transform: isHovered ? 'scale(1.1)' : 'scale(1)',
+                            transition: 'transform 0.3s ease',
+                            '&:active': {
+                                transform: 'scale(0.95)'
+                            }
+                        }}
                     >
                         <AnimatedIcon
                             animate={{ y: isHovered ? [-3, 0, -3] : 0 }}

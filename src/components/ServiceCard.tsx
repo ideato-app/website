@@ -1,81 +1,147 @@
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import React from 'react';
+import { motion } from 'framer-motion';
+import { Box, Paper, Typography, useTheme } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-interface ServiceCardProps {
+interface Service {
     id: string;
     title: string;
-    description: string;
     icon: string;
+    description: string;
 }
 
-const cardVariants = {
-    offscreen: {
-        y: 50,
-        opacity: 0
-    },
-    onscreen: {
-        y: 0,
+interface ServiceCardProps {
+    service: Service;
+    isHovered: boolean;
+    onHover: (isHovered: boolean) => void;
+}
+
+const StyledCard = styled(Paper)(({ theme }) => ({
+    borderRadius: 16,
+    padding: theme.spacing(4),
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    position: 'relative',
+    overflow: 'hidden',
+    transition: 'all 0.3s ease-in-out',
+    background: theme.palette.mode === 'dark'
+        ? 'linear-gradient(145deg, rgba(22, 27, 34, 0.9), rgba(17, 24, 39, 0.8))'
+        : 'linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(249, 250, 251, 0.95))',
+    border: `1px solid ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.03)'}`,
+    backdropFilter: 'blur(10px)',
+    '&:hover': {
+        transform: 'translateY(-10px)',
+        boxShadow: theme.palette.mode === 'dark'
+            ? '0 20px 40px rgba(0, 0, 0, 0.3)'
+            : '0 20px 40px rgba(0, 0, 0, 0.1)',
+    }
+}));
+
+const IconContainer = styled(Box)(({ theme }) => ({
+    fontSize: '3rem',
+    marginBottom: theme.spacing(3),
+    background: theme.palette.mode === 'dark'
+        ? 'rgba(255, 255, 255, 0.05)'
+        : 'rgba(0, 0, 0, 0.03)',
+    width: '70px',
+    height: '70px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: '20px',
+    position: 'relative',
+    overflow: 'hidden',
+}));
+
+const BackgroundGradient = styled(Box)(({ theme }) => ({
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    height: '5px',
+    background: `linear-gradient(to right, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+    zIndex: 1,
+}));
+
+const LinkButton = styled(Link)(({ theme }) => ({
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '0.5rem',
+    marginTop: theme.spacing(2),
+    color: theme.palette.primary.main,
+    textDecoration: 'none',
+    fontWeight: 600,
+    fontSize: '0.95rem',
+    transition: 'all 0.3s ease',
+    '&:hover': {
+        gap: '0.7rem'
+    }
+}));
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
         opacity: 1,
+        y: 0,
         transition: {
-            type: "spring",
-            bounce: 0.4,
-            duration: 0.8
+            duration: 0.5,
+            ease: "easeOut"
         }
     }
 };
 
-const ServiceCard = ({ id, title, description, icon }: ServiceCardProps) => {
-    const cardStyle: React.CSSProperties = {
-        background: 'rgba(var(--bg-secondary-rgb), 0.5)',
-        border: '1px solid var(--border-color)',
-        borderRadius: '16px',
-        padding: '2rem',
-        textAlign: 'right',
-        backdropFilter: 'blur(10px)',
-        transition: 'transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease',
-        boxShadow: '0 4px 20px rgba(var(--shadow-color), 0.05)',
-        display: 'block',
-        textDecoration: 'none'
-    };
-
-    const iconStyle = {
-        fontSize: '2.5rem',
-        marginBottom: '1rem',
-        display: 'inline-block',
-    };
+const ServiceCard = ({ service, isHovered, onHover }: ServiceCardProps) => {
+    const { id, title, icon, description } = service;
+    const theme = useTheme();
 
     return (
         <motion.div
-            variants={cardVariants}
-            initial="offscreen"
-            whileInView="onscreen"
-            viewport={{ once: true, amount: 0.2 }}
+            variants={itemVariants}
+            onMouseEnter={() => onHover(true)}
+            onMouseLeave={() => onHover(false)}
         >
-            <Link to={`/services/${id}`} style={cardStyle}
-                onMouseOver={e => {
-                    e.currentTarget.style.transform = 'translateY(-5px)';
-                    e.currentTarget.style.boxShadow = '0 8px 30px rgba(var(--shadow-color), 0.1)';
-                    e.currentTarget.style.borderColor = 'var(--accent-primary)';
-                }}
-                onMouseOut={e => {
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 4px 20px rgba(var(--shadow-color), 0.05)';
-                    e.currentTarget.style.borderColor = 'var(--border-color)';
-                }}
-            >
-                <div style={iconStyle}>{icon}</div>
-                <h3 style={{
-                    fontSize: '1.5rem',
-                    fontWeight: 700,
-                    marginBottom: '0.75rem',
-                    color: 'var(--text-primary)',
-                }}>{title}</h3>
-                <p style={{
-                    color: 'var(--text-secondary)',
-                    lineHeight: 1.7,
-                }}>{description}</p>
-            </Link>
+            <StyledCard elevation={isHovered ? 4 : 1}>
+                <BackgroundGradient />
+                <Box>
+                    <IconContainer>
+                        <motion.span
+                            animate={{
+                                scale: isHovered ? 1.2 : 1,
+                                rotate: isHovered ? 10 : 0
+                            }}
+                            transition={{ duration: 0.3 }}
+                        >
+                            {icon}
+                        </motion.span>
+                        <Box sx={{
+                            position: 'absolute',
+                            inset: 0,
+                            opacity: isHovered ? 0.2 : 0,
+                            transition: 'opacity 0.3s ease',
+                            background: `radial-gradient(circle, ${theme.palette.primary.main}50 0%, transparent 70%)`,
+                        }} />
+                    </IconContainer>
+                    <Typography variant="h6" component="h3" sx={{ mb: 1.5, fontWeight: 'bold' }}>
+                        {title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ mb: 2, fontSize: '0.95rem' }}>
+                        {description}
+                    </Typography>
+                </Box>
+
+                <LinkButton to={`/services/${id}`}>
+                    <span>عرض التفاصيل</span>
+                    <motion.span
+                        animate={{ x: isHovered ? 5 : 0 }}
+                        transition={{ duration: 0.3 }}
+                    >
+                        <ArrowForwardIcon fontSize="small" />
+                    </motion.span>
+                </LinkButton>
+            </StyledCard>
         </motion.div>
     );
 };

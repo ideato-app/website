@@ -1,10 +1,16 @@
 /* Footer.css */
 
 .footer {
-    background-color: var(--bg-secondary);
+    background-color: var(-bg-secondary);
     padding: 5rem 0 2rem 0;
     border-top: 1px solid var(--border-color);
     color: var(--text-secondary);
+}
+
+.dark-mode .footer {
+    background-color:#ffffff;
+    border-top: 1px solid rgb(255, 247, 247);
+    box-shadow: 0 -10px 30px rgb(4, 3, 3);
 }
 
 .footer-grid {
@@ -26,6 +32,10 @@
     font-weight: 900;
     display: block;
     margin-bottom: 1rem;
+}
+
+.dark-mode .footer-logo {
+    text-shadow: 0 0 10px rgba(125, 211, 252, 0.2);
 }
 
 .footer-logo-accent {
@@ -55,6 +65,11 @@
     background: var(--accent-primary);
 }
 
+.dark-mode .footer-column h4::after {
+    background: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgba(125, 211, 252, 0.3);
+}
+
 .footer-link {
     color: var(--text-secondary);
     text-decoration: none;
@@ -66,6 +81,11 @@
 .footer-link:hover {
     color: var(--accent-primary);
     transform: translateX(-4px);
+}
+
+.dark-mode .footer-link:hover {
+    color: var(--primary-light);
+    text-shadow: 0 0 5px rgba(125, 211, 252, 0.3);
 }
 
 .footer-social-links {
@@ -89,8 +109,18 @@
     color: var(--accent-primary);
 }
 
+.dark-mode .footer-social-link.facebook:hover,
+.dark-mode .footer-social-link.twitter:hover,
+.dark-mode .footer-social-link.linkedin:hover {
+    color: var(--primary-light);
+}
+
 .footer-social-link.instagram:hover {
     color: var(--accent-secondary);
+}
+
+.dark-mode .footer-social-link.instagram:hover {
+    color: var(--primary-color);
 }
 
 .footer-social-link.github:hover {
@@ -102,4 +132,8 @@
     border-top: 1px solid var(--border-color);
     text-align: center;
     font-size: 0.9rem;
+}
+
+.dark-mode .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }

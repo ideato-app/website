@@ -3,7 +3,6 @@ import useMediaQuery from '../hooks/useMediaQuery';
 import { useEffect } from 'react';
 import { Box, Typography, Container, Grid, Paper, useTheme } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { useThemeContext } from '../components/ThemeProvider';
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -32,7 +31,7 @@ const PageContainer = styled(Box)(({ theme }) => ({
         : 'rgba(248, 249, 250, 0.97)',
 }));
 
-const AuroraBackground = styled(Box)(({ theme }) => ({
+const AuroraBackground = styled(Box)(() => ({
     position: 'absolute',
     top: 0,
     left: 0,
@@ -70,7 +69,7 @@ const AuroraShape = styled(motion.div)(({ theme }) => ({
 const ContentBox = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(4),
     marginBottom: theme.spacing(5),
-    borderRadius: theme.shape.borderRadius * 2,
+    borderRadius: 16,
     boxShadow: theme.palette.mode === 'dark'
         ? '0 10px 30px rgba(0, 0, 0, 0.2)'
         : '0 10px 30px rgba(0, 0, 0, 0.05)',
@@ -142,7 +141,7 @@ const TeamMemberPaper = styled(Paper)(({ theme }) => ({
     alignItems: 'center',
     textAlign: 'center',
     height: '100%',
-    borderRadius: theme.shape.borderRadius * 2,
+    borderRadius: 16,
     overflow: 'hidden',
     boxShadow: theme.palette.mode === 'dark'
         ? '0 10px 30px rgba(0, 0, 0, 0.2)'
@@ -197,7 +196,7 @@ const TeamMemberCard = ({ name, role, imgSrc }: TeamMemberProps) => {
     const theme = useTheme();
 
     return (
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid sx={{ width: { xs: '100%', sm: '50%', md: '33.33%' } }}>
             <motion.div variants={itemVariants}>
                 <TeamMemberPaper elevation={3}>
                     <Box sx={{ position: 'relative' }}>
@@ -248,7 +247,6 @@ const AboutPage = () => {
     const isMobile = useMediaQuery('(max-width: 767px)');
     const isSmallMobile = useMediaQuery('(max-width: 480px)');
     const theme = useTheme();
-    const { isDarkMode } = useThemeContext();
 
     useEffect(() => {
         if (isSmallMobile) {

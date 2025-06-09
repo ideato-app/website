@@ -1,6 +1,5 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { services } from '../data/services';
-import { techLogos } from '../data/techLogos';
 import { motion } from 'framer-motion';
 
 const containerVariants = {
@@ -172,7 +171,7 @@ const ServicePage = () => {
                     )}
 
                     {/* Tech Stack Section */}
-                   
+
 
                     {/* CTA Section */}
                     <Section title="عندك فكرة مشروع؟">
@@ -184,7 +183,7 @@ const ServicePage = () => {
                                 lineHeight: 1.8,
                                 fontSize: '1.1rem'
                             }}>
-                مستنيين نعرف أكتر عن مشروعك. ابدأ معانا أول خطوة في تنفيذ فكرتك دلوقتي.
+                                مستنيين نعرف أكتر عن مشروعك. ابدأ معانا أول خطوة في تنفيذ فكرتك دلوقتي.
                             </p>
                             <Link to="/contact" className="cta-button" style={{ textDecoration: 'none' }}>
                                 ابدأ مشروعك دلوقتي

@@ -158,11 +158,10 @@ const FeaturesSection = () => {
                                         border: '1px solid var(--border-color)',
                                         borderRadius: '16px',
                                         backdropFilter: 'blur(10px)',
-                                        height: '100%',
+                                        height: '300px',
                                         display: 'flex',
                                         flexDirection: 'column',
                                         alignItems: 'center',
-                                        justifyContent: 'center'
                                     }}
                                 >
                                     <Box sx={{ mb: 2, color: 'primary.main', fontSize: '2.5rem' }}>{feature.icon}</Box>

@@ -50,64 +50,60 @@ const Navbar = () => {
     const handleMouseOut = (e: React.MouseEvent<HTMLAnchorElement>) => Object.assign(e.currentTarget.style, linkStyle);
 
     return (
-        <>
-            <motion.nav
-                style={navStyle}
-                initial={{ y: -100 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.5, ease: 'easeOut' }}
-            >
-                <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 1rem' }}>
-                    <Link to="/" style={{ textDecoration: 'none', color: 'var(--text-primary)', fontSize: '1.5rem', fontWeight: '900' }}>
-                        Idea<span style={{ color: 'var(--accent-primary)' }}>To</span>App
-                    </Link>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                        {/* Desktop Menu */}
-                        <div className="desktop-nav">
-                            <Link to="/" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>الرئيسية</Link>
-                            <a href="/#services" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>خدماتنا</a>
-                            <Link to="/about" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>من نحن</Link>
-                            <Link to="/portfolio" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>أعمالنا</Link>
-                            <Link to="/contact" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>تواصل معنا</Link>
-                            <DarkModeToggle isNavbar={true} />
-                        </div>
-                        {isMobile && <DarkModeToggle isNavbar={true} />}
-                        <button className="mobile-nav-toggle" onClick={() => setIsOpen(!isOpen)} style={{ background: 'none', border: 'none', color: 'var(--text-primary)' }}>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d={isOpen ? "M18 6L6 18" : "M4 6H20"} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                <path d={isOpen ? "M6 6L18 18" : "M4 12H20"} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                {!isOpen && <path d="M4 18H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />}
-                            </svg>
-                        </button>
+        <motion.nav
+            style={navStyle}
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+        >
+            <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 1rem' }}>
+                <Link to="/" style={{ textDecoration: 'none', color: 'var(--text-primary)', fontSize: '1.5rem', fontWeight: '900' }}>
+                    Idea<span style={{ color: 'var(--accent-primary)' }}>To</span>App
+                </Link>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    {/* Desktop Menu */}
+                    <div className="desktop-nav">
+                        <Link to="/" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>الرئيسية</Link>
+                        <a href="/#services" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>خدماتنا</a>
+                        <Link to="/about" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>من نحن</Link>
+                        <Link to="/portfolio" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>أعمالنا</Link>
+                        <Link to="/contact" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>تواصل معنا</Link>
+                        <DarkModeToggle isNavbar={true} />
                     </div>
+                    {isMobile && <DarkModeToggle isNavbar={true} />}
+                    <button className="mobile-nav-toggle" onClick={() => setIsOpen(!isOpen)} style={{ background: 'none', border: 'none', color: 'var(--text-primary)' }}>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d={isOpen ? "M18 6L6 18" : "M4 6H20"} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            <path d={isOpen ? "M6 6L18 18" : "M4 12H20"} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            {!isOpen && <path d="M4 18H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />}
+                        </svg>
+                    </button>
                 </div>
-                {/* Mobile Menu */}
-                {isOpen && (
-                    <motion.div
-                        style={{
-                            position: 'absolute',
-                            top: '100%',
-                            right: 0,
-                            left: 0,
-                            background: 'var(--bg-secondary)',
-                            padding: '1rem 0',
-                            textAlign: 'center'
-                        }}
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                    >
-                        <Link to="/" style={{ ...linkStyle, display: 'block', padding: '1rem' }} onClick={() => setIsOpen(false)}>الرئيسية</Link>
-                        <a href="/#services" style={{ ...linkStyle, display: 'block', padding: '1rem' }} onClick={() => setIsOpen(false)}>خدماتنا</a>
-                        <Link to="/about" style={{ ...linkStyle, display: 'block', padding: '1rem' }} onClick={() => setIsOpen(false)}>من نحن</Link>
-                        <Link to="/portfolio" style={{ ...linkStyle, display: 'block', padding: '1rem' }} onClick={() => setIsOpen(false)}>أعمالنا</Link>
-                        <Link to="/contact" style={{ ...linkStyle, display: 'block', padding: '1rem' }} onClick={() => setIsOpen(false)}>تواصل معنا</Link>
-                    </motion.div>
-                )}
-            </motion.nav>
-            {/* Fixed DarkModeToggle for mobile */}
-            {!isMobile && <DarkModeToggle isNavbar={false} />}
-        </>
+            </div>
+            {/* Mobile Menu */}
+            {isOpen && (
+                <motion.div
+                    style={{
+                        position: 'absolute',
+                        top: '100%',
+                        right: 0,
+                        left: 0,
+                        background: 'var(--bg-secondary)',
+                        padding: '1rem 0',
+                        textAlign: 'center'
+                    }}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                >
+                    <Link to="/" style={{ ...linkStyle, display: 'block', padding: '1rem' }} onClick={() => setIsOpen(false)}>الرئيسية</Link>
+                    <a href="/#services" style={{ ...linkStyle, display: 'block', padding: '1rem' }} onClick={() => setIsOpen(false)}>خدماتنا</a>
+                    <Link to="/about" style={{ ...linkStyle, display: 'block', padding: '1rem' }} onClick={() => setIsOpen(false)}>من نحن</Link>
+                    <Link to="/portfolio" style={{ ...linkStyle, display: 'block', padding: '1rem' }} onClick={() => setIsOpen(false)}>أعمالنا</Link>
+                    <Link to="/contact" style={{ ...linkStyle, display: 'block', padding: '1rem' }} onClick={() => setIsOpen(false)}>تواصل معنا</Link>
+                </motion.div>
+            )}
+        </motion.nav>
     );
 };
 

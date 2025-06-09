@@ -2,6 +2,7 @@ import { Paper, Typography, Box, Button, List, ListItem, ListItemIcon, ListItemT
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { styled } from '@mui/material/styles';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 export interface PricingPlan {
     id: string;
@@ -82,6 +83,12 @@ const FeatureItem = styled(ListItem)(({ theme }) => ({
 }));
 
 const PricingCard = ({ plan }: PricingCardProps) => {
+    const navigate = useNavigate();
+
+    const handleCtaClick = () => {
+        navigate('/contact', { state: { fromPricing: true, selectedPlan: plan.title } });
+    };
+
     return (
         <StyledPaper
             elevation={0}
@@ -182,6 +189,7 @@ const PricingCard = ({ plan }: PricingCardProps) => {
                     color="primary"
                     fullWidth
                     size="large"
+                    onClick={handleCtaClick}
                     sx={{
                         borderRadius: '10px',
                         fontWeight: 'bold',

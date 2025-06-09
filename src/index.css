@@ -1085,10 +1085,69 @@ section {
   gap: 1rem;
 }
 
+/* Pricing request box styling */
+.pricing-request-box {
+  background-color: rgba(var(--accent-primary-rgb), 0.1);
+  border: 1px solid rgba(var(--accent-primary-rgb), 0.2);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-request-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+}
+
+.pricing-request-box h3 {
+  margin-top: 0;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.pricing-request-box p {
+  margin-bottom: 0;
+  color: var(--text-secondary);
+}
+
+.highlight-text {
+  color: var(--accent-primary) !important;
+  font-weight: 600;
+}
+
+.content-box-subtitle {
+  font-size: 1.25rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
 /* Additional responsive improvements */
 @media (max-width: 480px) {
   .contact-content {
     padding-bottom: 2rem;
+  }
+  
+  .pricing-request-box {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .content-box-subtitle {
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .xs-subtitle {
+    font-size: 1rem;
   }
 }
 

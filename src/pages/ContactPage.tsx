@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { FacebookIcon, TwitterIcon, InstagramIcon, LinkedInIcon, GitHubIcon } from '../components/SocialIcons';
 import useMediaQuery from '../hooks/useMediaQuery';
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -23,6 +24,11 @@ const itemVariants = {
 const ContactPage = () => {
     const isMobile = useMediaQuery('(max-width: 767px)');
     const isSmallMobile = useMediaQuery('(max-width: 480px)');
+    const location = useLocation();
+
+    // Check if coming from pricing page
+    const fromPricing = location.state?.fromPricing;
+    const selectedPlan = location.state?.selectedPlan;
 
     // Add CSS classes to the document body
     useEffect(() => {
@@ -56,18 +62,33 @@ const ContactPage = () => {
                     className="contact-content"
                 >
                     <motion.h1 variants={itemVariants} className="section-title">تواصل معنا</motion.h1>
-                    <motion.p variants={itemVariants} className="section-subtitle responsive-text">
-                        نحن متحمسون لسماع أفكارك. اختر طريقة التواصل المفضلة لديك أدناه.
-                    </motion.p>
+
+                    {fromPricing ? (
+                        <motion.p variants={itemVariants} className="section-subtitle responsive-text highlight-text">
+                            أنت على وشك التقدم لباقة "{selectedPlan}". يرجى إخبارنا بالمزيد عن مشروعك لنتمكن من مساعدتك بشكل أفضل.
+                        </motion.p>
+                    ) : (
+                        <motion.p variants={itemVariants} className="section-subtitle responsive-text">
+                            نحن متحمسون لسماع أفكارك. اختر طريقة التواصل المفضلة لديك أدناه.
+                        </motion.p>
+                    )}
 
                     <motion.div
                         variants={itemVariants}
                         className={`content-box ${isSmallMobile ? 'xs-padding' : isMobile ? 'sm-padding' : ''}`}
                     >
                         <h2 className={`content-box-title ${isSmallMobile ? 'xs-title' : ''}`}>التواصل المباشر</h2>
+
+                        {fromPricing && (
+                            <div className="pricing-request-box">
+                                <h3>طلب الحصول على باقة {selectedPlan}</h3>
+                                <p>يرجى ذكر اسم الباقة في رسالتك لنا</p>
+                            </div>
+                        )}
+
                         <div className="contact-grid">
                             <motion.a
-                                href="mailto:contact@ideatoapp.com"
+                                href={`mailto:contact@ideatoapp.com${fromPricing ? `?subject=طلب باقة ${selectedPlan}` : ''}`}
                                 className={`contact-button ${isSmallMobile ? 'xs-contact-button' : isMobile ? 'sm-contact-button' : ''}`}
                                 whileHover={!isMobile ? { y: -5, boxShadow: '0 10px 20px rgba(var(--shadow-color), 0.1)' } : {}}
                             >
@@ -75,7 +96,7 @@ const ContactPage = () => {
                                 <span className="contact-text">راسلنا عبر البريد</span>
                             </motion.a>
                             <motion.a
-                                href="https://wa.me/201104532940"
+                                href={`https://wa.me/201104532940${fromPricing ? `?text=أرغب في الاستفسار عن باقة ${selectedPlan}` : ''}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={`contact-button ${isSmallMobile ? 'xs-contact-button' : isMobile ? 'sm-contact-button' : ''}`}
@@ -86,7 +107,7 @@ const ContactPage = () => {
                             </motion.a>
                         </div>
 
-                        <h2 className={`content-box-title ${isSmallMobile ? 'xs-title' : ''}`}>تابعنا على الشبكات الاجتماعية</h2>
+                        <h3 className={`content-box-subtitle ${isSmallMobile ? 'xs-subtitle' : ''}`}>تابعنا على وسائل التواصل</h3>
                         <div className={`social-icons-grid ${isSmallMobile ? 'xs-social-grid' : ''}`}>
                             <a href="https://www.facebook.com/ideato.app.official" aria-label="Facebook" className="social-link" data-color="accent-primary">
                                 <FacebookIcon />

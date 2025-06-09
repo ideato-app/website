@@ -28,7 +28,7 @@ const StyledPaper = styled(Paper, {
     zIndex: isRecommended ? 1 : 0,
     '&:hover': {
         transform: isRecommended ? 'scale(1.08)' : 'scale(1.03)',
-        boxShadow: theme.shadows[10],
+        boxShadow: `0px 20px 40px -10px ${theme.palette.mode === 'dark' ? 'rgba(0,0,0,0.3)' : 'rgba(0,0,0,0.2)'}`,
     },
 }));
 

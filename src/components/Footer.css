@@ -1,0 +1,105 @@
+/* Footer.css */
+
+.footer {
+    background-color: var(--bg-secondary);
+    padding: 5rem 0 2rem 0;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 3rem;
+    margin-bottom: 4rem;
+    text-align: right;
+}
+
+.footer-brand-column {
+    margin-right: auto;
+}
+
+.footer-logo {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 1.8rem;
+    font-weight: 900;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.footer-logo-accent {
+    color: var(--accent-primary);
+}
+
+.footer-description {
+    line-height: 1.8;
+}
+
+.footer-column h4 {
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.footer-column h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 2px;
+    width: 30px;
+    background: var(--accent-primary);
+}
+
+.footer-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin-bottom: 0.75rem;
+    display: inline-block;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-link:hover {
+    color: var(--accent-primary);
+    transform: translateX(-4px);
+}
+
+.footer-social-links {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: flex-end;
+}
+
+.footer-social-link {
+    color: var(--text-secondary);
+    transition: color 0.3s, transform 0.3s;
+}
+
+.footer-social-link:hover {
+    transform: scale(1.2);
+}
+
+.footer-social-link.facebook:hover,
+.footer-social-link.twitter:hover,
+.footer-social-link.linkedin:hover {
+    color: var(--accent-primary);
+}
+
+.footer-social-link.instagram:hover {
+    color: var(--accent-secondary);
+}
+
+.footer-social-link.github:hover {
+    color: var(--text-primary);
+}
+
+.footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    font-size: 0.9rem;
+}

@@ -1,0 +1,103 @@
+/* Navbar.css */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 1.5rem 0;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
+    background-color: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+    border-bottom: 1px solid transparent;
+}
+
+.navbar.scrolled {
+    background-color: rgba(var(--bg-secondary-rgb), 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(var(--shadow-color), 0.1);
+    border-color: var(--border-color);
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.navbar-logo {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.navbar-logo-accent {
+    color: var(--accent-primary);
+}
+
+.navbar-menu-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navbar-link {
+    color: var(--text-secondary);
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.navbar-link:hover {
+    color: var(--text-primary);
+    background-color: var(--bg-tertiary);
+}
+
+.mobile-nav-toggle {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    display: none;
+    /* Hidden by default, shown in media query */
+}
+
+.mobile-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background: var(--bg-secondary);
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.mobile-menu-link {
+    display: block;
+    padding: 1rem;
+    color: var(--text-secondary);
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.mobile-menu-link:hover {
+    color: var(--text-primary);
+    background-color: var(--bg-tertiary);
+}
+
+/* Responsive Styles */
+@media (max-width: 767px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .mobile-nav-toggle {
+        display: block;
+    }
+}

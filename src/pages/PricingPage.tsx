@@ -1,9 +1,10 @@
-import { useState } from 'react';
-import { Container, Typography, Box, Tabs, Tab, useTheme, styled as muiStyled } from '@mui/material';
+import React, { useState } from 'react';
+import { Container, Typography, Box, Tabs, Tab, useTheme } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import { servicePricingData } from '../data/servicePricingData';
 import PricingCard from '../components/PricingCard';
 import { styled } from '@mui/material/styles';
+import type { Theme } from '@mui/material/styles';
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import VerifiedIcon from '@mui/icons-material/Verified';
@@ -17,7 +18,7 @@ interface TabPanelProps {
     value: number;
 }
 
-const PageContainer = styled(Box)(({ theme }) => ({
+const PageContainer = styled(Box)(({ theme }: { theme: Theme }) => ({
     padding: theme.spacing(12, 0),
     position: 'relative',
     minHeight: '100vh',

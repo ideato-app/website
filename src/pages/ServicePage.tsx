@@ -2,7 +2,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { services } from '../data/services';
 import { motion } from 'framer-motion';
 import { styled } from '@mui/material/styles';
-import { Box, Typography, Container, Paper, useTheme } from '@mui/material';
+import { Box, Typography, Container, Paper } from '@mui/material';
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -67,11 +67,16 @@ const AuroraShape = styled(motion.div)(({ theme }) => ({
     },
 }));
 
-const ServiceHeader = styled(Box)(({ theme }) => ({
+const ServiceHeader = styled(Box)(() => ({
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
     textAlign: 'center',
-    marginBottom: '6rem',
+    padding: '2rem 1rem',
+    marginBottom: '3rem',
     position: 'relative',
-    zIndex: 1,
+    overflow: 'hidden',
 }));
 
 const IconContainer = styled(Box)(({ theme }) => ({
@@ -128,10 +133,12 @@ const Divider = styled(Box)(({ theme }) => ({
     margin: '0 auto 2.5rem auto',
 }));
 
-const FeaturesGrid = styled(Box)(({ theme }) => ({
+const FeaturesGrid = styled(Box)(() => ({
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-    gap: '2rem'
+    gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+    gap: '2rem',
+    marginTop: '3rem',
+    marginBottom: '5rem',
 }));
 
 const FeatureCardStyled = styled(Paper)(({ theme }) => ({
@@ -169,7 +176,11 @@ const FeatureDescription = styled(Typography)(({ theme }) => ({
     lineHeight: 1.8
 }));
 
-const ProcessTimeline = styled(Box)(({ theme }) => ({
+const ProcessTimeline = styled(Box)(() => ({
+    display: 'flex',
+    flexDirection: 'column',
+    marginTop: '3rem',
+    marginBottom: '5rem',
     position: 'relative',
 }));
 
@@ -182,12 +193,16 @@ const TimelineTrack = styled(Box)(({ theme }) => ({
     background: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.08)',
 }));
 
-const ProcessStep = styled(Box)(({ theme }) => ({
+const ProcessStep = styled(Box)(() => ({
     display: 'flex',
-    alignItems: 'center',
-    marginBottom: '2rem',
+    margin: '1rem 0',
+    padding: '1.5rem',
+    borderRadius: '12px',
     position: 'relative',
-    paddingRight: '70px'
+    transition: 'all 0.3s ease',
+    '&:hover': {
+        transform: 'translateY(-5px)',
+    }
 }));
 
 const StepNumber = styled(Box)(({ theme }) => ({
@@ -291,7 +306,6 @@ const FeatureCard = ({ icon, title, description }: { icon: string, title: string
 const ServicePage = () => {
     const { serviceId } = useParams();
     const service = services.find(s => s.id === serviceId);
-    const theme = useTheme();
 
     if (!service) {
         return <Navigate to="/" replace />;

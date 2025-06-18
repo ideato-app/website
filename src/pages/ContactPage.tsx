@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
@@ -39,7 +38,7 @@ const floatingIconVariants = {
 
 const cardVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: custom => ({
+    visible: (custom: number) => ({
         opacity: 1,
         y: 0,
         transition: {
@@ -248,7 +247,11 @@ const ContactPage = () => {
                             <motion.a
                                 href={`mailto:contact@ideatoapp.com${fromPricing ? `?subject=طلب باقة ${selectedPlan}` : ''}`}
                                 className="contact-card-button"
-                                whileHover={{ scale: 1.05 }}
+                                whileHover={{
+                                    scale: 1.05,
+                                    color: darkMode ? '#ffffff' : undefined,
+                                    backgroundColor: darkMode ? 'var(--primary-hover-dark)' : undefined
+                                }}
                                 whileTap={{ scale: 0.95 }}
                             >
                                 راسلنا الآن
@@ -274,7 +277,11 @@ const ContactPage = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="contact-card-button"
-                                whileHover={{ scale: 1.05 }}
+                                whileHover={{
+                                    scale: 1.05,
+                                    color: darkMode ? '#ffffff' : undefined,
+                                    backgroundColor: darkMode ? 'var(--whatsapp-hover-dark)' : undefined
+                                }}
                                 whileTap={{ scale: 0.95 }}
                             >
                                 تواصل عبر واتساب
@@ -298,7 +305,11 @@ const ContactPage = () => {
                             <motion.a
                                 href="tel:+201104532940"
                                 className="contact-card-button"
-                                whileHover={{ scale: 1.05 }}
+                                whileHover={{
+                                    scale: 1.05,
+                                    color: darkMode ? '#ffffff' : undefined,
+                                    backgroundColor: darkMode ? 'var(--support-hover-dark)' : undefined
+                                }}
                                 whileTap={{ scale: 0.95 }}
                             >
                                 اتصل بالدعم الفني
@@ -322,7 +333,11 @@ const ContactPage = () => {
                             <motion.a
                                 href={`mailto:projects@ideatoapp.com${fromPricing ? `?subject=طلب عرض سعر لباقة ${selectedPlan}` : ''}`}
                                 className="contact-card-button"
-                                whileHover={{ scale: 1.05 }}
+                                whileHover={{
+                                    scale: 1.05,
+                                    color: darkMode ? '#ffffff' : undefined,
+                                    backgroundColor: darkMode ? 'var(--project-hover-dark)' : undefined
+                                }}
                                 whileTap={{ scale: 0.95 }}
                             >
                                 طلب عرض سعر

@@ -59,6 +59,12 @@
   --cta-floating-element-bg: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
   --cta-dots-opacity: 0.2;
   --cta-dots-bg: radial-gradient(#3b82f6 1px, transparent 1px);
+
+  /* Button hover colors for dark theme */
+  --primary-hover-dark: #2c5aa7;
+  --whatsapp-hover-dark: #128c43;
+  --support-hover-dark: #8941a9;
+  --project-hover-dark: #b23c55;
 }
 
 .dark-mode {
@@ -2138,36 +2144,25 @@ textarea.form-control {
 
 .contact-card-button {
   display: inline-block;
-  padding: 0.8rem 1.5rem;
-  background: transparent;
+  margin-top: 1rem;
+  padding: 0.7rem 1.5rem;
+  background-color: var(--background-light);
   color: var(--text-primary);
-  border: 2px solid currentColor;
-  border-radius: 8px;
   text-decoration: none;
+  border-radius: 8px;
   font-weight: 600;
-  transition: all 0.3s;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-.primary-card .contact-card-button {
-  color: #3b82f6;
-}
-
-.whatsapp-card .contact-card-button {
-  color: #25d366;
-}
-
-.support-card .contact-card-button {
-  color: #8b5cf6;
-}
-
-.project-card .contact-card-button {
-  color: #f59e0b;
-}
-
-.contact-card-button:hover {
-  background: currentColor;
-  color: white;
-  transform: translateY(-3px);
+.dark-mode .contact-card-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .card-decoration {
@@ -2351,4 +2346,50 @@ textarea.form-control {
     padding: 0.7rem 1.2rem;
     font-size: 0.9rem;
   }
+}
+
+/* Contact card specific styles */
+.primary-card .contact-card-button {
+  color: #3b82f6;
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.whatsapp-card .contact-card-button {
+  color: #25d366;
+  border-color: rgba(37, 211, 102, 0.3);
+}
+
+.support-card .contact-card-button {
+  color: #8b5cf6;
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.project-card .contact-card-button {
+  color: #f59e0b;
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+/* Dark mode specific button styles */
+.dark-mode .primary-card .contact-card-button:hover {
+  background-color: var(--primary-hover-dark);
+  color: white;
+  border-color: var(--primary-hover-dark);
+}
+
+.dark-mode .whatsapp-card .contact-card-button:hover {
+  background-color: var(--whatsapp-hover-dark);
+  color: white;
+  border-color: var(--whatsapp-hover-dark);
+}
+
+.dark-mode .support-card .contact-card-button:hover {
+  background-color: var(--support-hover-dark);
+  color: white;
+  border-color: var(--support-hover-dark);
+}
+
+.dark-mode .project-card .contact-card-button:hover {
+  background-color: var(--project-hover-dark);
+  color: white;
+  border-color: var(--project-hover-dark);
 }

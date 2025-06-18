@@ -1,11 +1,16 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
+import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 import { HelmetProvider } from 'react-helmet-async'
 import ThemeProvider from './components/ThemeProvider'
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+// Using the preferred React 19.1.0 API
+const rootElement = document.getElementById('root')
+if (!rootElement) throw new Error('Failed to find the root element')
+const root = createRoot(rootElement)
+
+root.render(
   <React.StrictMode>
     <HelmetProvider>
       <ThemeProvider>

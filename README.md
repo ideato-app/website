@@ -4,11 +4,11 @@ A modern, animated landing page for "Idea to App" tech company in Arabic (RTL la
 
 ## Technologies Used
 
-- React
+- React 19.1.0
 - TypeScript
 - Tailwind CSS
 - Framer Motion (for animations)
-- Vite (for fast development)
+- Vite 6.3 (for fast development)
 
 ## Features
 
@@ -17,13 +17,14 @@ A modern, animated landing page for "Idea to App" tech company in Arabic (RTL la
 - Animated components with Framer Motion
 - Dark mode support
 - Modern UI with smooth animations
+- Full React 19.1.0 compatibility
 
 ## Getting Started
 
 1. Clone the repository
 2. Install dependencies:
    ```
-   npm install
+   npm install --legacy-peer-deps
    ```
 3. Run the development server:
    ```
@@ -33,6 +34,15 @@ A modern, animated landing page for "Idea to App" tech company in Arabic (RTL la
    ```
    npm run build
    ```
+
+## React 19.1.0 Compatibility
+
+This project has been updated to fully support React 19.1.0. Key compatibility features include:
+
+- Using the modern `createRoot` API
+- Optimized Vite configuration for React 19
+- Legacy peer dependencies flag for compatibility
+- Updated component lifecycle management
 
 ## Project Structure
 

@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "npm install --legacy-peer-deps && node react-helmet-patch.js && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "validate-react": "echo \"Validating React 19.1.0 compatibility\" && tsc -b && vite build"
+    "validate-react": "echo \"Validating React 19.1.0 compatibility\" && npm install --legacy-peer-deps && node react-helmet-patch.js && tsc -b && vite build",
+    "postinstall": "node react-helmet-patch.js"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -21,7 +22,7 @@
     "framer-motion": "^11.18.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-helmet-async": "^2.0.5",
+    "react-helmet-async": "npm:@epicweb-dev/react-helmet-async@^2.0.4",
     "react-router-dom": "^7.6.2",
     "swiper": "^11.2.8"
   },

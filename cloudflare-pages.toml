@@ -1,5 +1,5 @@
 [build]
-command = "bash cloudflare-build.sh"
+command = "npm run build:cloudflare"
 publish = "dist"
 
 [build.environment]

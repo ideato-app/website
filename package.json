@@ -5,11 +5,19 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm install --legacy-peer-deps && node react-helmet-patch.js && tsc -b && vite build",
+    "build": "node -e \"process.env.SKIP_INSTALL !== 'true' && require('child_process').execSync('npm install --legacy-peer-deps', {stdio: 'inherit'})\" && node patch-helmet.cjs && tsc -b && vite build",
+    "build:cloudflare": "node cloudflare-build.cjs",
     "lint": "eslint .",
     "preview": "vite preview",
-    "validate-react": "echo \"Validating React 19.1.0 compatibility\" && npm install --legacy-peer-deps && node react-helmet-patch.js && tsc -b && vite build",
-    "postinstall": "node react-helmet-patch.js"
+    "validate-react": "echo \"Validating React 19.1.0 compatibility\" && npm install --legacy-peer-deps && node patch-helmet.cjs && tsc -b && vite build",
+    "postinstall": "node patch-helmet.cjs"
+  },
+  "overrides": {
+    "react-helmet-async": {
+      "peerDependencies": {
+        "react": "^16.6.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
+      }
+    }
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -22,7 +30,7 @@
     "framer-motion": "^11.18.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-helmet-async": "npm:@epicweb-dev/react-helmet-async@^2.0.4",
+    "react-helmet-async": "^2.0.5",
     "react-router-dom": "^7.6.2",
     "swiper": "^11.2.8"
   },

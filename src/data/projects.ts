@@ -34,11 +34,11 @@ export const projects: Project[] = [
     },
     {
         id: 4,
-        title: 'Project Management Tool',
-        description: 'A collaborative tool for teams to manage tasks, track progress, and communicate effectively on projects.',
-        imageUrl: 'https://via.placeholder.com/400x300/fb5607/ffffff?text=Project+Tool',
-        projectUrl: '#',
-        tags: ['Angular', 'Spring Boot', 'PostgreSQL'],
+        title: 'درة الأقصى للعمرة',
+        description: 'موقع لحجز رحلات العمرة إلكترونيًا من خلال برامج متنوعة وتنظيم احترافي.',
+        imageUrl: 'assets/images/projects/dora-alaqsa.png',
+        projectUrl: 'https://dora-alaqsa.com',
+        tags: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
     },
     {
         id: 5,

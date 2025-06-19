@@ -25,25 +25,26 @@ export const servicePricingData: ServicePricing[] = [
         plans: [
             {
                 id: 'web-basic',
-                title: 'موقع تعريفي',
-                price: '12,000 ج.م',
-                priceDetails: 'مرة واحدة',
+                title: 'باقة الموقع التعريفي',
+                price: '4,000 ج.م',
+                priceDetails: 'دفع لمرة واحدة فقط',
                 features: [
-                    'صفحة رئيسية + 4 صفحات إضافية',
-                    'تصميم متجاوب مع جميع الأجهزة',
-                    'فورم تواصل متكاملة',
-                    'ربط بوسائل التواصل الاجتماعي',
-                    'لوحة تحكم بسيطة',
-                    'تسريع تحميل الموقع',
-                    'شهادة أمان SSL',
-                    'استضافة مجانية لمدة سنة',
+                    'تصميم صفحة رئيسية احترافية + 4 صفحات داخلية',
+                    'تصميم متجاوب يعمل بكفاءة على جميع الأجهزة (كمبيوتر – تابلت – موبايل)',
+                    'نموذج تواصل متكامل (إرسال تلقائي للبريد)',
+                    'ربط كامل بحسابات التواصل الاجتماعي',
+                    'لوحة تحكم سهلة لإدارة المحتوى',
+                    'تحسين سرعة تحميل الموقع (Optimized Performance)',
+                    'شهادة أمان SSL مجانًا (https)',
+                    'استضافة مجانية لمدة سنة كاملة',
+                    'تحسين أساسيات SEO (تهيئة لمحركات البحث)',
                 ],
-                cta: 'ابدأ الآن',
-            },
+                cta: 'احجز موقعك الآن',
+            },            
             {
                 id: 'web-business',
                 title: 'متجر إلكتروني',
-                price: '35,000 ج.م',
+                price: '6,000 ج.م',
                 priceDetails: 'مرة واحدة',
                 features: [
                     'كل مزايا الموقع التعريفي',
@@ -90,7 +91,7 @@ export const servicePricingData: ServicePricing[] = [
             {
                 id: 'app-mvp',
                 title: 'النسخة الأولية (MVP)',
-                price: '50,000 ج.م',
+                price: '6,000 ج.م',
                 priceDetails: 'تبدأ من',
                 features: [
                     'تطبيق لنظام واحد (iOS أو Android)',
@@ -107,7 +108,7 @@ export const servicePricingData: ServicePricing[] = [
             {
                 id: 'app-full',
                 title: 'تطبيق متكامل',
-                price: '150,000 ج.م',
+                price: '9,000 ج.م',
                 priceDetails: 'تبدأ من',
                 features: [
                     'تطبيق لنظامي iOS و Android',
@@ -155,7 +156,7 @@ export const servicePricingData: ServicePricing[] = [
             {
                 id: 'ai-analysis',
                 title: 'تحليل بيانات',
-                price: '25,000 ج.م',
+                price: '2,000 ج.م',
                 priceDetails: 'للمشروع',
                 features: [
                     'تحليل استكشافي للبيانات',
@@ -172,7 +173,7 @@ export const servicePricingData: ServicePricing[] = [
             {
                 id: 'ai-integration',
                 title: 'تكامل نماذج تعلم الآلة',
-                price: '75,000 ج.م',
+                price: '3,000 ج.م',
                 priceDetails: 'تبدأ من',
                 features: [
                     'دمج نماذج جاهزة في أنظمتك',
@@ -219,7 +220,7 @@ export const servicePricingData: ServicePricing[] = [
             {
                 id: 'ui-audit',
                 title: 'تقييم تجربة المستخدم',
-                price: '15,000 ج.م',
+                price: '2,000 ج.م',
                 priceDetails: 'مرة واحدة',
                 features: [
                     'تحليل كامل للمنتج الحالي',
@@ -236,7 +237,7 @@ export const servicePricingData: ServicePricing[] = [
             {
                 id: 'ui-design-system',
                 title: 'تصميم تطبيق أو موقع',
-                price: '45,000 ج.م',
+                price: '3,000 ج.م',
                 priceDetails: 'تبدأ من',
                 features: [
                     'بحث المستخدمين وبناء الشخصيات',
@@ -283,7 +284,7 @@ export const servicePricingData: ServicePricing[] = [
             {
                 id: 'security-scan',
                 title: 'فحص ثغرات أساسي',
-                price: '20,000 ج.م',
+                price: '5,000 ج.م',
                 priceDetails: 'للتطبيق الواحد',
                 features: [
                     'فحص تلقائي للثغرات الشائعة',
@@ -300,7 +301,7 @@ export const servicePricingData: ServicePricing[] = [
             {
                 id: 'security-pentest',
                 title: 'اختبار اختراق متقدم',
-                price: '85,000 ج.م',
+                price: '7,000 ج.م',
                 priceDetails: 'تبدأ من',
                 features: [
                     'محاكاة هجمات حقيقية (Pen-testing)',
@@ -347,7 +348,7 @@ export const servicePricingData: ServicePricing[] = [
             {
                 id: 'hosting-shared',
                 title: 'استضافة مواقع',
-                price: '1,000 ج.م',
+                price: '1,500 ج.م',
                 priceDetails: 'شهرياً',
                 features: [
                     'استضافة مشتركة',
@@ -360,6 +361,26 @@ export const servicePricingData: ServicePricing[] = [
                     'حماية أساسية من هجمات DDoS',
                 ],
                 cta: 'اطلب الآن',
+            },
+            {
+                id: 'publishing-app',
+                title: ' جونشر التطبيقات على المتاجر (Android)',
+                price: '1,250 ج.م',
+                priceDetails: 'مرة واحدة',
+                features: [
+                    'نشر التطبيقات على المتاجر (Google Play Store)',
+                    'تطبيقات التحديثات الدورية',
+                ],
+            },
+            {
+                id: 'publishing-app',
+                title: ' جونشر التطبيقات على المتاجر (iOS)',
+                price: '5,000 ج.م',
+                priceDetails: 'سنوياً',
+                features: [
+                    'نشر التطبيقات على المتاجر (Google Play Store)',
+                    'تطبيقات التحديثات الدورية',
+                ],
             },
             {
                 id: 'hosting-vps',

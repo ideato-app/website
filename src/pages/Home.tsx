@@ -1,6 +1,6 @@
 import HeroSection from '../components/HeroSection';
 import ServicesGrid from '../components/ServicesGrid';
-import TestimonialsSection from '../components/TestimonialsSection';
+// import TestimonialsSection from '../components/TestimonialsSection';
 import CtaSection from '../components/CtaSection';
 import FeaturesSection from '../components/FeaturesSection';
 
@@ -10,7 +10,7 @@ const Home = () => {
             <HeroSection />
             <FeaturesSection />
             <ServicesGrid />
-            <TestimonialsSection />
+            {/* <TestimonialsSection /> */}
             <CtaSection />
         </>
     );

@@ -10,27 +10,27 @@ export interface Project {
 export const projects: Project[] = [
     {
         id: 1,
-        title: 'E-commerce Platform',
-        description: 'A full-featured e-commerce platform with a modern UI, product management, and a secure checkout process.',
-        imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlkJ3bqM4elgdYziNtKfMnR1BW504gn1G8kQ&s',
-        projectUrl: '#',
-        tags: ['React', 'Node.js', 'Express', 'MongoDB'],
-    },
+        title: 'زاهب للتأشيرات والسفر',
+        description: 'شركة كويتية تقدم خدمات التأشيرات، حجوزات السفر، الترجمة المعتمدة، وتأمين السفر للأفراد والشركات.',
+        imageUrl: 'assets/images/projects/zahebintl.png',
+        projectUrl: 'https://zahebintl.com',
+        tags: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
+    },    
     {
         id: 2,
-        title: 'Social Media Dashboard',
-        description: 'A powerful dashboard to manage multiple social media accounts, schedule posts, and analyze engagement.',
-        imageUrl: 'https://www.searchenginejournal.com/wp-content/uploads/2021/09/16-reasons-why-social-media-is-important-to-your-company-616d3200e6dc6-sej-1280x720.png',
-        projectUrl: '#',
-        tags: ['Vue.js', 'Firebase', 'Chart.js'],
+        title: 'المسار للعمرة',
+        description: 'شركة متخصصة في خدمات العمرة، تقدم باقات ميسرة ومستوى عالٍ من الراحة والخدمة.',
+        imageUrl: 'https://almasar-umrah.com/images/logo.png', // استخدم شعار الشركة إن وُجد أو غيّر للرابط المناسب
+        projectUrl: 'https://almasar-umrah.com',
+        tags: ['عمرة', 'خدمات دينية', 'تنظيم رحلات', 'سفر'],
     },
     {
         id: 3,
-        title: 'Mobile Banking App',
-        description: 'A secure and intuitive mobile banking application with features like transfers, bill payments, and account statements.',
-        imageUrl: 'https://via.placeholder.com/400x300/ff006e/ffffff?text=Banking+App',
-        projectUrl: '#',
-        tags: ['React Native', 'TypeScript', 'Redux'],
+        title: 'الإسلام لخدمة المعتمرين',
+        description: 'باقات عمرة من الرياض تشمل فنادق 5 نجوم قريبة من الحرم ونقل فاخر بباصات VIP، بأسعار تنافسية وخدمات متكاملة.',
+        imageUrl: 'https://aleslaam.com/assets/logo.png', // يمكنك تغييره بصورة أو شعار مناسب من الموقع
+        projectUrl: 'https://aleslaam.com',
+        tags: ['عمرة', 'فنادق قريبة من الحرم', 'باصات VIP', 'خدمات معتمرين'],
     },
     {
         id: 4,

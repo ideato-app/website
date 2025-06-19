@@ -46,9 +46,9 @@ const statsVariants = {
 
 const HeroSection = () => {
     const stats = [
-        { number: '50+', label: 'مشروع منجز' },
+        { number: '30+', label: 'مشروع منجز' },
         { number: '30+', label: 'عميل سعيد' },
-        { number: '100%', label: 'رضا العملاء' },
+        { number: '98%', label: 'رضا العملاء' },
     ];
 
     return (

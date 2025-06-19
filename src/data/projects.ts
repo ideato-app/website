@@ -20,7 +20,7 @@ export const projects: Project[] = [
         id: 2,
         title: 'المسار للعمرة',
         description: 'شركة متخصصة في خدمات العمرة، تقدم باقات ميسرة ومستوى عالٍ من الراحة والخدمة.',
-        imageUrl: 'https://almasar-umrah.com/images/logo.png', // استخدم شعار الشركة إن وُجد أو غيّر للرابط المناسب
+        imageUrl: 'assets/images/projects/almasar-umrah.png',
         projectUrl: 'https://almasar-umrah.com',
         tags: ['عمرة', 'خدمات دينية', 'تنظيم رحلات', 'سفر'],
     },
@@ -28,7 +28,7 @@ export const projects: Project[] = [
         id: 3,
         title: 'الإسلام لخدمة المعتمرين',
         description: 'باقات عمرة من الرياض تشمل فنادق 5 نجوم قريبة من الحرم ونقل فاخر بباصات VIP، بأسعار تنافسية وخدمات متكاملة.',
-        imageUrl: 'https://aleslaam.com/assets/logo.png', // يمكنك تغييره بصورة أو شعار مناسب من الموقع
+        imageUrl: 'assets/images/projects/aleslaam.png',
         projectUrl: 'https://aleslaam.com',
         tags: ['عمرة', 'فنادق قريبة من الحرم', 'باصات VIP', 'خدمات معتمرين'],
     },

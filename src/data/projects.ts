@@ -22,7 +22,7 @@ export const projects: Project[] = [
         description: 'شركة متخصصة في خدمات العمرة، تقدم باقات ميسرة ومستوى عالٍ من الراحة والخدمة.',
         imageUrl: 'assets/images/projects/almasar-umrah.png',
         projectUrl: 'https://almasar-umrah.com',
-        tags: ['عمرة', 'خدمات دينية', 'تنظيم رحلات', 'سفر'],
+        tags: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
     },
     {
         id: 3,
@@ -30,7 +30,7 @@ export const projects: Project[] = [
         description: 'باقات عمرة من الرياض تشمل فنادق 5 نجوم قريبة من الحرم ونقل فاخر بباصات VIP، بأسعار تنافسية وخدمات متكاملة.',
         imageUrl: 'assets/images/projects/aleslaam.png',
         projectUrl: 'https://aleslaam.com',
-        tags: ['عمرة', 'فنادق قريبة من الحرم', 'باصات VIP', 'خدمات معتمرين'],
+        tags: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
     },
     {
         id: 4,

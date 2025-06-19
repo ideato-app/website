@@ -42,18 +42,10 @@ export const projects: Project[] = [
     },
     {
         id: 5,
-        title: 'Online Learning Platform',
-        description: 'An interactive e-learning platform offering video courses, quizzes, and certificates of completion.',
-        imageUrl: 'https://via.placeholder.com/400x300/ffbe0b/000000?text=E-Learning',
-        projectUrl: '#',
-        tags: ['Next.js', 'GraphQL', 'Prisma'],
-    },
-    {
-        id: 6,
-        title: 'Healthcare Management System',
-        description: 'A comprehensive system for hospitals to manage patient records, appointments, and billing efficiently.',
-        imageUrl: 'https://d1pflc66vs2s7d.cloudfront.net/wp-content/uploads/2023/02/healthcare-management-system-erp-software-uae.webp',
-        projectUrl: '#',
-        tags: ['Java', 'Hibernate', 'MySQL'],
-    }
+        title: 'ماستر القهوة',
+        description: 'موقع إلكتروني مخصص لعرض وطلب منتجات ماستر القهوة.',
+        imageUrl: 'assets/images/projects/master-coffee.png',
+        projectUrl: 'https://t-offee.pages.dev/',
+        tags: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
+    },    
 ]; 

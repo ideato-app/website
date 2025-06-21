@@ -28,7 +28,7 @@ export const projects: Project[] = [
         id: 3,
         title: 'الإسلام لخدمة المعتمرين',
         description: 'باقات عمرة من الرياض تشمل فنادق 5 نجوم قريبة من الحرم ونقل فاخر بباصات VIP، بأسعار تنافسية وخدمات متكاملة.',
-        imageUrl: '../src/assets/projects/al-eslam.png',
+        imageUrl: 'https://raw.githubusercontent.com/ideato-app/website/refs/heads/main/src/assets/projects/al-eslam.png',
         projectUrl: 'https://aleslaam.com',
         tags: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
     },

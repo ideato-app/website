@@ -462,7 +462,7 @@ const teamMembers: TeamMemberProps[] = [
     {
         name: "محمد عماد",
         role: "مهندس برمجيات و خبير ذكاء اصطناعي",
-        imgSrc: "src/assets/profile.png",
+        imgSrc: "https://github.com/ideato-app/website/blob/main/src/assets/profile.png?raw=true",
         bio: "مهندس برمجة متخصص في تقنيات الذكاء الاصطناعي وتطوير واجهات المستخدم الحديثة.",
         skills: ["React", "TypeScript", "AI", "Python"],
         email: "email@example.com",
@@ -472,7 +472,7 @@ const teamMembers: TeamMemberProps[] = [
     {
         name: "معاذ احمد",
         role: "مهندس برمجيات و خبير امن سيبراني",
-        imgSrc: "src/assets/profile.png",
+        imgSrc: "https://github.com/ideato-app/website/blob/main/src/assets/profile.png?raw=true",
         bio: "متخصص في أمن المعلومات وحماية البيانات وتطوير البنية التحتية الآمنة.",
         skills: ["Security", "DevOps", "Node.js", "AWS"],
         email: "email@example.com",
@@ -482,7 +482,7 @@ const teamMembers: TeamMemberProps[] = [
     {
         name: "محمد عبدالرحيم",
         role: "مهندس برمجيات و متخصص SEO",
-        imgSrc: "src/assets/profile.png",
+        imgSrc: "https://github.com/ideato-app/website/blob/main/src/assets/profile.png?raw=true",
         bio: "خبير في تحسين محركات البحث وتطوير تجربة المستخدم وتصميم المواقع.",
         skills: ["SEO", "Web Design", "UX/UI", "Analytics"],
         email: "email@example.com",

@@ -36,7 +36,7 @@ export const projects: Project[] = [
         id: 4,
         title: 'درة الأقصى للعمرة',
         description: 'موقع لحجز رحلات العمرة إلكترونيًا من خلال برامج متنوعة وتنظيم احترافي.',
-        imageUrl: 'https://github.com/ideato-app/website/blob/main/src/assets/projects/dora-alaqsa.png',
+        imageUrl: 'https://github.com/ideato-app/website/blob/main/src/assets/projects/dora-alaqsa.png?raw=true',
         projectUrl: 'https://dora-alaqsa.com',
         tags: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
     },

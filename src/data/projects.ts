@@ -20,7 +20,7 @@ export const projects: Project[] = [
         id: 2,
         title: 'المسار للعمرة',
         description: 'شركة متخصصة في خدمات العمرة، تقدم باقات ميسرة ومستوى عالٍ من الراحة والخدمة.',
-        imageUrl: '../src/assets/projects/al-masar.png',
+        imageUrl: '/src/assets/projects/al-masar.png',
         projectUrl: 'https://almasar-umrah.com',
         tags: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
     },

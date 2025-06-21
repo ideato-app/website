@@ -22,16 +22,20 @@
 
 /* Dark mode navbar enhancements */
 .navbar.dark-navbar {
-    background-color: rgba(15, 23, 42, 0.85);
-    /* Slate-900 with opacity */
-    border-bottom: 1px solid rgba(71, 85, 105, 0.2);
-    /* Slate-600 with opacity */
+    background-color: rgba(15, 23, 42, 0.9);
+    /* Increased opacity to prevent color bleed */
+    border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+    /* Slightly more visible border */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* Added shadow for better separation */
 }
 
 .navbar.dark-navbar.scrolled {
     background-color: rgba(15, 23, 42, 0.98);
-    /* Darker when scrolled */
+    /* Almost solid when scrolled */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(71, 85, 105, 0.4);
+    /* More visible border when scrolled */
 }
 
 .navbar-container {
@@ -53,7 +57,8 @@
 
 .dark-navbar .navbar-logo {
     text-shadow: 0 0 10px rgba(125, 211, 252, 0.2);
-    /* Subtle glow in dark mode */
+    color: var(--text-primary);
+    /* Ensure text color is correct in dark mode */
 }
 
 .navbar-logo-accent {
@@ -100,7 +105,7 @@
 }
 
 .dark-navbar .navbar-link.active {
-    color: #7dd3fc;
+    color: #fff;
     /* Sky-400 */
 }
 

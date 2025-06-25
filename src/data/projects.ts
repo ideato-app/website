@@ -52,7 +52,7 @@ export const projects: Project[] = [
         id: 6,
         title: "prompt-hub",
         description: "prompt-hub is a platform for creating and customizing prompts for AI models.",
-        imageUrl: '../public/images/projects/prompt-hub/home.png',
+        imageUrl: 'https://i.ibb.co/dw59TZC0/home.png',
         projectUrl: 'https://prompt.ideato.systems/',
         tags: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript','SQL',],
     },

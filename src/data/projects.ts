@@ -14,7 +14,7 @@ export const projects: Project[] = [
         description: 'شركة كويتية تقدم خدمات التأشيرات، حجوزات السفر، الترجمة المعتمدة، وتأمين السفر للأفراد والشركات.',
         imageUrl: 'https://github.com/ideato-app/website/blob/main/src/assets/projects/zahebintl.png?raw=true',
         projectUrl: 'https://zahebintl.com',
-        tags: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
+        tags: ['HTML', 'CSS', 'JavaScript','CMS'],
     },    
     {
         id: 2,
@@ -22,7 +22,7 @@ export const projects: Project[] = [
         description: 'شركة متخصصة في خدمات العمرة، تقدم باقات ميسرة ومستوى عالٍ من الراحة والخدمة.',
         imageUrl: 'https://github.com/ideato-app/website/blob/main/src/assets/projects/al-masar.png?raw=true',
         projectUrl: 'https://almasar-umrah.com',
-        tags: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
+        tags: ['React',  'Tailwind CSS', 'TypeScript'],
     },
     {
         id: 3,
@@ -30,7 +30,7 @@ export const projects: Project[] = [
         description: 'باقات عمرة من الرياض تشمل فنادق 5 نجوم قريبة من الحرم ونقل فاخر بباصات VIP، بأسعار تنافسية وخدمات متكاملة.',
         imageUrl: 'https://raw.githubusercontent.com/ideato-app/website/refs/heads/main/src/assets/projects/al-eslam.png',
         projectUrl: 'https://aleslaam.com',
-        tags: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
+        tags: ['React', 'Tailwind CSS', 'TypeScript'],
     },
     {
         id: 4,
@@ -38,7 +38,7 @@ export const projects: Project[] = [
         description: 'موقع لحجز رحلات العمرة إلكترونيًا من خلال برامج متنوعة وتنظيم احترافي.',
         imageUrl: 'https://github.com/ideato-app/website/blob/main/src/assets/projects/dora-alaqsa.png?raw=true',
         projectUrl: 'https://dora-alaqsa.com',
-        tags: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
+        tags: ['React', 'Tailwind CSS', 'TypeScript'],
     },
     {
         id: 5,
@@ -46,6 +46,14 @@ export const projects: Project[] = [
         description: 'موقع إلكتروني مخصص لعرض وطلب منتجات ماستر القهوة.',
         imageUrl: 'https://github.com/ideato-app/website/blob/main/src/assets/projects/master-cofee.png?raw=true',
         projectUrl: 'https://t-offee.pages.dev/',
-        tags: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
-    },    
+        tags: ['React', 'Tailwind CSS', 'TypeScript'],
+    }, 
+    {
+        id: 6,
+        title: "prompt-hub",
+        description: "prompt-hub is a platform for creating and customizing prompts for AI models.",
+        imageUrl: 'public/images/projects/prompt-hub/home.png',
+        projectUrl: 'https://prompt.ideato.systems/',
+        tags: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript','SQL',],
+    },
 ]; 
